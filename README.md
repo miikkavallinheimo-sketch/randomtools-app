@@ -52,3 +52,8 @@ You can embed any RandomTools app on your website:
 
 ```html
 <iframe src="https://randomtools.app/coin-flip/" width="300" height="400"></iframe>
+---
+
+## 🔍 SEO Keywords
+
+random tools, random generator, coin flip, coin flipper, fair coin flip, dice roller, dnd dice, online dice roller, number generator, random number picker, random number selector, decision wheel, spin the wheel, random decision maker, random picker, wheel of fortune, randomizer app, privacy-friendly random tools, offline random generator, javascript random app, cloudflare pages, open source pwa
