@@ -23,11 +23,11 @@ Flip a coin, roll dice, spin a decision wheel, or pick random numbers — all in
 
 | Tool | Description |
 |------|--------------|
-| 🪙 [**Coin Flipper**](https://randomtools.app/coin-flip/) | Flip a fair coin — heads or tails — with smooth animation |
-| 🎲 [**Dice Roller**](https://randomtools.app/dice-roller/) | Roll 1–20 dice at once, including D&D dice sets |
-| 🎯 [**Random Number Generator**](https://randomtools.app/random-number-generator/) | Pick a random number between any two values |
-| 🎡 [**Decision Wheel**](https://randomtools.app/decision-wheel/) | Spin the wheel of fortune for random decisions |
-| 🃏 [**Card Draw**](https://randomtools.app/card-draw/) | Draw cards from a shuffled deck (coming soon) |
+| 🪙 [Coin Flipper](/coin-flip/) | Flip a fair coin — heads or tails — with smooth animation |
+| 🎲 [Dice Roller](/dice-roller/) | Roll 1–20 dice at once, including D&D dice sets |
+| 🎯 [Random Number Generator](/random-number-generator/) | Pick a random number between any two values |
+| 🎡 [Decision Wheel](/decision-wheel/) | Spin the wheel of fortune for random decisions |
+| 🃏 [Card Draw](/card-draw/) | Draw cards from a shuffled deck (coming soon) |
 
 All tools are **open-source** and can be used **offline** once cached.
 
