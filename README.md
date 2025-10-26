@@ -1,3 +1,7 @@
+![Static Site](https://img.shields.io/badge/site-static-brightgreen)
+![PWA](https://img.shields.io/badge/PWA-offline%20ready-blue)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
 # 🎲 RandomTools.app — Open Random Generators
 
 **RandomTools.app** is a collection of simple, fast, and privacy-friendly random generators built for games, decisions, and everyday fun.  
@@ -31,10 +35,10 @@ All tools are **open-source** and can be used **offline** once cached.
 
 ## 🧠 How It Works
 
-Each tool uses JavaScript’s pseudorandom generator (`Math.random()`), enhanced with seed-mixing and entropy from user events (clicks, timing jitter, etc.).  
+Each tool uses JavaScript's pseudorandom generator (`Math.random()`), enhanced with seed-mixing and entropy from user events (clicks, timing jitter, etc.).  
 The randomness is sufficient for games, classroom decisions, and simple probability experiments.
 
-> **Note:** These tools are *not* for cryptographic use — they’re designed for fun, fairness, and education.
+> **Note:** These tools are *not* for cryptographic use — they're designed for fun, fairness, and education.
 
 ---
 
@@ -52,6 +56,7 @@ You can embed any RandomTools app on your website:
 
 ```html
 <iframe src="https://randomtools.app/coin-flip/" width="300" height="400"></iframe>
+```
 ---
 
 ## 🔍 SEO Keywords
