@@ -1,5 +1,17 @@
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
 **/.DS_Store
+
+# Thumbnails
+._*
+
+# System files
+.Spotlight-V100
+.Trashes
+
+# IDE and dev files
 .env
 node_modules/
 dist/
