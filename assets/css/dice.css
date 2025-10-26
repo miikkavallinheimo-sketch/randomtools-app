@@ -1,0 +1,400 @@
+:root{
+  /* Väripaletti */
+  --orange:#FB8B24; --gold:#FB8B24; --cream:#FFFFFF; --mint:#059669;
+  --black:#1A1A1A; --dark-gray:#121212; --medium-gray:#1f1f1f; --light-gray:#2a2a2a;
+  --pip-size: 16px;
+  --pip-gap: 6px;
+}
+
+/* Perus */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--black);
+  min-height:100vh; color:var(--cream); line-height:1.6
+}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+
+/* Yläpalkki */
+.nav{
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--dark-gray);border-radius:16px;padding:20px 30px;margin-bottom:40px;
+  border:1px solid var(--light-gray)
+}
+.logo{font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.8em;color:var(--orange)}
+.logo a{color:inherit;text-decoration:none}
+.nav-menu{display:flex;gap:6px;flex-wrap:wrap}
+.nav-item{
+  font-family:'Fredoka',sans-serif;font-weight:500;color:var(--cream);text-decoration:none;
+  padding:10px 16px;border-radius:10px;transition:all .2s ease
+}
+.nav-item:hover{background:var(--light-gray);color:var(--orange)}
+.nav-item.active{background:var(--orange);color:var(--cream)}
+
+/* Otsikot & sisällöt */
+.game-header{background:var(--dark-gray);border-radius:16px;padding:26px;margin-bottom:12px;text-align:center;border:1px solid var(--light-gray)}
+.game-header h1{font-family:'Fredoka',sans-serif;font-weight:600;font-size:2em;color:var(--orange);margin-bottom:6px}
+.game-header h2{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.8em;color:var(--orange);margin-bottom:6px}
+.game-header p{opacity:.9;color:var(--cream)}
+.hint{margin-top:6px;font-size:.95em;opacity:.85}
+.game-content{background:var(--dark-gray);border-radius:16px;padding:20px 26px;border:1px solid var(--light-gray)}
+
+/* Lomake & napit */
+.input-group{margin-bottom:16px}
+label{display:block;margin-bottom:8px;font-weight:600;color:var(--orange)}
+input,select{
+  width:100%;padding:12px 16px;border:1px solid var(--light-gray);border-radius:10px;font-size:16px;
+  background:var(--medium-gray);color:var(--cream);transition:all .2s ease
+}
+input:focus,select:focus{outline:none;border-color:var(--orange);background:#2e2e2e}
+input::placeholder{color:rgba(255,255,250,.45)}
+.btn{
+  background:var(--orange);color:var(--cream);border:none;padding:14px 20px;border-radius:10px;font-size:16px;
+  font-weight:700;font-family:'Fredoka',sans-serif;cursor:pointer;transition:all .2s ease
+}
+.btn:hover{background:transparent;border:2px solid var(--orange);color:var(--orange);transform:translateY(-2px)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none;border:none}
+.btn.secondary{background:var(--mint);color:var(--cream);border:2px solid transparent}
+.btn.secondary:hover{background:transparent;border:2px solid var(--mint);color:var(--mint)}
+.btn.danger{background:#000;border:2px solid var(--orange);color:var(--cream)}
+.btn.danger:hover{background:transparent;color:var(--orange)}
+.btn.fs{background:transparent;border:1px dashed var(--orange);color:var(--orange);padding:12px 14px}
+
+/* Nopat */
+.dice-pills{display:flex;gap:8px;flex-wrap:wrap}
+.dice-pill{
+  background:#242424;color:var(--cream);border:2px solid #2f2f2f;padding:8px 16px;border-radius:20px;
+  cursor:pointer;transition:all .2s ease;font-weight:600;font-family:'Fredoka',sans-serif
+}
+.dice-pill:hover{border-color:var(--orange);background:#2f2f2f}
+.dice-pill.active{background:var(--orange);border-color:var(--orange);color:var(--cream)}
+
+.dice-container{
+  margin:18px 0;display:flex;align-items:center;justify-content:center;background:#242424;border-radius:12px;padding:26px;
+  font-family:'JetBrains Mono',monospace;font-size:6.2em;gap:22px;border:1px solid #2f2f2f;flex-wrap:wrap;
+  position:relative;overflow:hidden;color:var(--cream)
+}
+.dice-container span{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+  border: 2px solid var(--orange);
+  border-radius: 16px;
+  padding: 4px;
+  margin: 6px;
+  width: 80px;
+  height: 80px;
+  box-shadow: 
+    inset 0 2px 4px rgba(255,255,255,0.1),
+    0 4px 8px rgba(0,0,0,0.3),
+    0 0 0 1px rgba(245,93,35,0.2);
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s ease;
+  position: relative;
+  overflow: hidden;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  cursor: pointer;
+}
+.dice-container span.locked{
+  background: #9A031E !important;
+  border-color: #9A031E;
+  box-shadow: 
+    inset 0 2px 4px rgba(255,255,255,0.1),
+    0 4px 8px rgba(0,0,0,0.3),
+    0 0 0 1px rgba(154,3,30,0.4),
+    0 0 15px rgba(154,3,30,0.3);
+}
+
+/* Pyörimisanimaatio */
+.dice-container.rolling{
+  background: linear-gradient(45deg, #242424, #2a2a2a, #242424);
+  background-size: 200% 200%;
+  animation: dice-container-shake 0.15s ease-in-out infinite, dice-bg-flow 3s ease-in-out infinite;
+  border-color: var(--orange);
+  box-shadow: 0 0 20px rgba(251, 139, 36, 0.3);
+  transition: all 0.3s ease;
+}
+.dice-container.rolling span{
+  background: linear-gradient(135deg, #3a3a3a, #2a2a2a);
+  border-color: var(--orange);
+  border-radius: 18px;
+  box-shadow: 
+    inset 0 2px 4px rgba(255,255,255,0.2),
+    0 6px 12px rgba(0,0,0,0.4),
+    0 0 0 2px rgba(251,139,36,0.4),
+    0 0 15px rgba(251,139,36,0.3);
+  animation: dice-glow 0.8s ease-in-out infinite alternate;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)) drop-shadow(0 0 8px rgba(251,139,36,0.4));
+}
+.dice-container.rolling span div div{
+  background: #fff !important;
+  opacity: 0.8;
+  animation: pip-pulse 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes pip-pulse{
+  0%{opacity: 0.6; transform: scale(0.9)}
+  100%{opacity: 1; transform: scale(1.1)}
+}
+
+@keyframes dice-container-shake{
+  0%{transform:translateX(0)}
+  25%{transform:translateX(-1px)}
+  50%{transform:translateX(1px)}
+  75%{transform:translateX(-1px)}
+  100%{transform:translateX(0)}
+}
+@keyframes dice-bg-flow{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes dice-glow{
+  0%{filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3)) drop-shadow(0 0 8px rgba(251,139,36,0.2))}
+  100%{filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3)) drop-shadow(0 0 12px rgba(251,139,36,0.6))}
+}
+
+/* Mobiilinopat */
+@media(max-width:560px){
+  .dice-container{padding:4px}
+  .dice-container span{padding:0;margin:4px;width:60px;height:60px}
+  .dice-container span div{--pip-size:12px;--pip-gap:2px}
+  .dice-container span div div{width:var(--pip-size) !important;height:var(--pip-size) !important;margin:0 !important}
+  
+  /* Stats grid 2x2 mobiilissa */
+  .stats-grid{
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+    gap: 10px !important;
+    margin: 15px 0 !important;
+  }
+  
+  /* Mobile controls layout - tietyt elementit */
+  .game-content .flex-row:nth-of-type(2){
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    margin-top: 15px !important;
+  }
+  
+  .game-content .flex-row:nth-of-type(2) > div:last-child{
+    display: flex !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    order: 2 !important;
+  }
+  
+  /* Iso Roll-nappi mobiilissa - täyttää rivin */
+  #btnRollDice{
+    font-size: 24px !important;
+    padding: 16px 32px !important;
+    min-height: 64px !important;
+    font-weight: 600 !important;
+    border-radius: 16px !important;
+    background: linear-gradient(135deg, var(--orange), #e84a1a) !important;
+    box-shadow: 
+      0 8px 16px rgba(251, 139, 36, 0.3),
+      inset 0 2px 4px rgba(255,255,255,0.2) !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+    transform: translateY(0) !important;
+    transition: all 0.2s ease !important;
+    width: 100% !important;
+    order: 1 !important;
+  }
+  
+  #btnRollDice:hover, #btnRollDice:active{
+    transform: translateY(-2px) !important;
+    box-shadow: 
+      0 12px 24px rgba(251, 139, 36, 0.4),
+      inset 0 2px 4px rgba(255,255,255,0.3) !important;
+  }
+  
+  #btnRollDice:active{
+    transform: translateY(1px) !important;
+  }
+  
+  /* Clear ja Fullscreen napit pienemmiksi */
+  #btnClearDice, #btnFsDice{
+    font-size: 14px !important;
+    padding: 12px 16px !important;
+    min-height: 48px !important;
+  }
+  
+  /* Fullscreen Roll-nappi */
+  .overlay #btnRollDice, .overlay #btnRollDiceFs{
+    font-size: 24px !important;
+    padding: 16px 32px !important;
+    min-height: 64px !important;
+    font-weight: 600 !important;
+    border-radius: 16px !important;
+    background: linear-gradient(135deg, var(--orange), #e84a1a) !important;
+    box-shadow: 
+      0 8px 16px rgba(251, 139, 36, 0.3),
+      inset 0 2px 4px rgba(255,255,255,0.2) !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+  }
+}
+
+/* Fullscreen isot napit */
+.overlay .btn{
+  font-size: 18px !important;
+  padding: 14px 24px !important;
+  min-height: 56px !important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
+}
+
+.overlay #btnRollDiceFs{
+  background: linear-gradient(135deg, var(--orange), #e84a1a) !important;
+  box-shadow: 
+    0 6px 12px rgba(251, 139, 36, 0.3),
+    inset 0 2px 4px rgba(255,255,255,0.2) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+}
+
+/* Fullscreen layout uudelleenjärjestys */
+.overlay .inner{
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  padding: 10px !important;
+}
+
+.overlay .game-controls{
+  order: 0 !important;
+  margin-bottom: 10px !important;
+}
+
+.overlay .dice-container{
+  order: 1 !important;
+  margin: 20px 0 !important;
+  min-height: 280px !important;
+  padding: 24px !important;
+}
+
+.overlay .result{
+  order: 1.5 !important;
+  margin: 10px 0 !important;
+  padding: 15px !important;
+}
+
+/* Roll-nappi omassa containerissa YLHÄÄLLÄ */
+.overlay .roll-button-container{
+  order: 2 !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  margin: 10px 0 5px 0 !important;
+}
+
+/* Clear ja Close napit Roll-napin ALLA */
+.overlay .controls{
+  order: 3 !important;
+  display: flex !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  margin: 5px 0 10px 0 !important;
+}
+
+/* Roll-nappi ISON ja LEVEÄN */
+.overlay #btnRollDiceFs{
+  width: 80% !important;
+  font-size: 20px !important;
+  padding: 16px 40px !important;
+  min-height: 60px !important;
+  font-weight: 700 !important;
+  background: linear-gradient(135deg, var(--orange), #e84a1a) !important;
+  box-shadow: 
+    0 6px 12px rgba(251, 139, 36, 0.3),
+    inset 0 2px 4px rgba(255,255,255,0.2) !important;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3) !important;
+}
+
+/* Suurenna nopat fullscreenissä */
+.overlay .dice-container span{
+  width: 110px !important;
+  height: 110px !important;
+}
+.overlay .dice-container span div{--pip-size:18px;--pip-gap:6px}
+
+.overlay #btnClearDiceFs, .overlay #btnExitFs{
+  font-size: 16px !important;
+  padding: 12px 20px !important;
+  min-height: 48px !important;
+}
+
+.overlay .stats-grid{
+  order: 4 !important;
+  margin: 5px 0 0 0 !important;
+  gap: 8px !important;
+}
+
+/* Fullscreen nopan valinnat keskitetty */
+.overlay .game-controls{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.overlay .control-group{
+  text-align: center;
+}
+
+.overlay .dice-pills{
+  justify-content: center !important;
+}
+
+/* Tulokset, listat, tilastot */
+.result{
+  background:#242424;color:var(--cream);padding:20px;border-radius:12px;margin:18px 0;text-align:center;
+  font-family:'JetBrains Mono',monospace;font-size:1.15em;font-weight:600;min-height:56px;display:none;align-items:center;justify-content:center;border:1px solid var(--orange)
+}
+
+/* Tilastoruudut */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:16px}
+.stat-card{background:#242424;padding:16px;border-radius:12px;text-align:center;border:1px solid #2f2f2f;transition:transform .2s ease}
+.stat-card:hover{transform:translateY(-3px);border-color:var(--orange)}
+.stat-number{font-family:'JetBrains Mono',monospace;font-size:1.25em;font-weight:800;color:var(--orange);margin-bottom:4px}
+.stat-label{font-size:.85em;opacity:.78;font-weight:600;color:var(--cream)}
+
+/* Layoutit */
+.flex-row{display:flex;gap:12px;align-items:end;flex-wrap:wrap}
+.flex-row>div{flex:1 1 200px}
+.page{display:block}
+
+/* Fullscreen overlay */
+.overlay{
+  position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.95);
+  display:none;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(4px)
+}
+.overlay .inner{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  max-width:90vw;max-height:90vh;text-align:center;position:relative;color:var(--cream)
+}
+.overlay .controls{margin-top:20px;display:flex;gap:12px;justify-content:center}
+.game-controls{margin:20px 0}
+.control-group{margin-bottom:16px}
+
+/* Animaatiot */
+@keyframes pop-in{
+  0%{transform:scale(.8);opacity:.6}
+  50%{transform:scale(1.05)}
+  100%{transform:scale(1);opacity:1}
+}
+
+/* Responsiivisuus */
+@media(max-width:768px){
+  .container{padding:15px}
+  .nav{padding:15px 20px;margin-bottom:30px}
+  .logo{font-size:1.5em}
+  .nav-menu{gap:4px}
+  .nav-item{padding:8px 12px;font-size:0.9em}
+  .game-header{padding:20px}
+  .game-header h1{font-size:1.8em}
+  .game-content{padding:15px 20px}
+  .flex-row{flex-direction:column;align-items:stretch}
+  .flex-row>div{flex:1 1 auto}
+  .dice-container{font-size:4.8em;gap:16px;padding:20px}
+}

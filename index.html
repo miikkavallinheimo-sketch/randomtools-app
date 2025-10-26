@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>RandomTools.app — Randomizers</title>
+  <meta name="description" content="Free randomizer tools: numbers, dice, coin, and decision wheel — with fullscreen animations." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/app.css?v=13" />
+
+  <!-- RandomTools.app Schema Markup - Tiputa tämä <head> -osioon -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "RandomTools.app",
+    "description": "Free random tools for gaming and decisions. Roll dice, generate numbers, flip coins, and spin decision wheels. Perfect for D&D, casino practice, and daily choices.",
+    "url": "https://randomtools.app",
+    "applicationCategory": "GameApplication",
+    "operatingSystem": "Web browser",
+    "browserRequirements": "Requires JavaScript. Works on mobile and desktop.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "featureList": [
+      "Random Number Generator (1-1000+ range)",
+      "Dice Roller (1-5 dice with 3D animation)",
+      "Coin Flip (heads or tails decision maker)", 
+      "Decision Wheel (custom wheel spinner)",
+      "Statistics tracking and result memory",
+      "Mobile-optimized interface",
+      "No registration required"
+    ],
+    "screenshot": "https://randomtools.app/images/screenshot.png",
+    "author": {
+      "@type": "Person",
+      "name": "RandomTools Developer"
+    },
+    "publisher": {
+      "@type": "Organization", 
+      "name": "RandomTools.app"
+    },
+    "datePublished": "2024-01-01",
+    "dateModified": "2024-12-30",
+    "inLanguage": "en",
+    "isAccessibleForFree": true,
+    "keywords": "random number generator, dice roller, coin flip, decision wheel, D&D tools, casino practice, random tools",
+    "audience": {
+      "@type": "Audience",
+      "audienceType": ["Gamers", "Students", "Teachers", "D&D Players", "Decision Makers"]
+    },
+    "usageInfo": "Free to use for personal and educational purposes",
+    "permissions": "No special permissions required",
+    "storageRequirements": "Works in browser memory, no installation needed"
+  }
+  </script>
+
+  <!-- Lisäksi nämä meta-tagit: -->
+  <meta name="application-name" content="RandomTools.app">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="RandomTools">
+
+  <!-- PWA manifest linkki -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="canonical" href="https://randomtools.app/" />
+  <link rel="alternate" hreflang="en" href="https://randomtools.app/" />
+  <link rel="alternate" hreflang="x-default" href="https://randomtools.app/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RandomTools.app — Randomizers">
+  <meta property="og:description" content="Free randomizer tools: numbers, dice, coin, and decision wheel — with fullscreen animations.">
+  <meta property="og:url" content="https://randomtools.app/">
+  <meta property="og:image" content="https://randomtools.app/icon-192.png">
+  <meta property="og:site_name" content="RandomTools.app">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RandomTools.app — Randomizers">
+  <meta name="twitter:description" content="Free randomizer tools: numbers, dice, coin, and decision wheel — with fullscreen animations.">
+  <meta name="twitter:image" content="https://randomtools.app/icon-192.png">
+
+  <!-- JSON-LD: WebPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "RandomTools.app — Randomizers",
+    "url": "https://randomtools.app/",
+    "inLanguage": "en",
+    "description": "Free randomizer tools: numbers, dice, coin, and decision wheel — with fullscreen animations.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "RandomTools.app",
+      "url": "https://randomtools.app/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://randomtools.app/"}
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRE6H78BLY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GRE6H78BLY');
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="logo">RandomTools.app</div>
+      <div class="nav-menu" id="navMenu">
+        <a href="/" class="nav-item active">Home</a>
+        <a href="/random-number-generator/" class="nav-item">Numbers</a>
+        <a href="/dice-roller/" class="nav-item">Dice</a>
+        <a href="/dnd_dice/" class="nav-item">D&D Dice</a>
+        <a href="/coin-flip/" class="nav-item">Coin</a>
+        <a href="/decision-wheel/" class="nav-item">Wheel</a>
+      </div>
+    </nav>
+
+    <!-- Home -->
+    <div id="home" class="page active">
+      <div class="hero">
+        <h1>Random Tools for Gaming & Decisions</h1>
+        <p>One sleek page with the essentials: numbers, dice, coin, and a decision wheel. Fast, fullscreen, and animated.</p>
+      </div>
+      <div class="games-grid">
+        <a href="/random-number-generator/" class="game-card"><div class="game-icon">🔢</div><div class="game-title">Random Number Generator</div><div class="game-description">Generate random numbers instantly. Perfect for games, passwords, and statistical sampling with history tracking.</div></a>
+        <a href="/dice-roller/" class="game-card"><div class="game-icon">🎲</div><div class="game-title">Dice Roller</div><div class="game-description">Roll virtual dice with realistic animations. Lock individual dice for board games and probability experiments.</div></a>
+        <a href="/dnd_dice/" class="game-card"><div class="game-icon">🎯</div><div class="game-title">D&D Dice Roller</div><div class="game-description">Professional D&D dice with advantage, modifiers, and critical detection. Perfect for D&D 5e and tabletop RPGs.</div></a>
+        <a href="/coin-flip/" class="game-card"><div class="game-icon">🪙</div><div class="game-title">Coin Flip</div><div class="game-description">Flip digital coins with smooth 3D animations. Make quick decisions with heads or tails randomization.</div></a>
+        <a href="/decision-wheel/" class="game-card"><div class="game-icon">🎡</div><div class="game-title">Decision Wheel</div><div class="game-description">Spin customizable decision wheels with 2-20 options. Great for choosing teams, activities, or making group decisions.</div></a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <!-- Etusivu ei tarvitse työkalujen JavaScript-tiedostoja -->
+
+  <!-- SEO Expandable Section for Homepage -->
+  <section class="seo-section container" style="margin-top:40px">
+    <details class="faq-expandable">
+      <summary><strong>How to Use Our Random Tools - Complete Guide</strong></summary>
+      <div class="faq-content">
+        
+        <h3>Random Number Selection</h3>
+        <p>Need to <strong>pick a number 1-100</strong> quickly? Use our Random Number Generator to select from any range. Whether you need classroom picks, raffle numbers, or lottery selections, simply set your minimum and maximum values and generate. Popular ranges include 1-10 for small groups, 1-100 for percentages, and custom ranges for specific needs.</p>
+
+        <h3>Dice Rolling for Gaming</h3>
+        <p>Our <strong>dice roller multiple</strong> feature lets you roll up to 5 dice simultaneously - perfect for board games and damage calculations. For tabletop RPG players, try our specialized <strong>dice roller D&D</strong> mode with polyhedral dice (d4, d6, d8, d10, d12, d20, d100). The <strong>DnD dice online</strong> tool includes advantage/disadvantage rolling and automatic critical hit detection for D&D 5e campaigns.</p>
+
+        <h3>Decision Making Tools</h3>
+        <p>Can't decide what to do? Our <strong>pick wheel</strong> (also called a decision wheel) helps you choose between multiple options. Create custom wheels with 2-20 sections for any decision. Popular uses include the <strong>"what should I do wheel"</strong> for daily activities, restaurant choices, movie selections, and group decisions. Perfect for indecisive moments!</p>
+
+        <h3>Coin Flipping & Quick Choices</h3>
+        <p>The <strong>coin flip simulator</strong> provides classic heads-or-tails decisions with realistic animation. Great for settling disputes, making binary choices, or when you need a simple yes/no answer. Track your flip history and statistics over time.</p>
+
+        <h4>Pro Tips:</h4>
+        <ul>
+          <li><strong>Keyboard shortcut:</strong> Press <kbd>Space</kbd> on any tool to activate</li>
+          <li><strong>Mobile friendly:</strong> All tools work perfectly on phones and tablets</li>
+          <li><strong>No downloads:</strong> Everything runs in your browser instantly</li>
+          <li><strong>Privacy first:</strong> No data is stored or shared</li>
+        </ul>
+
+        <h4>Popular Use Cases:</h4>
+        <ul>
+          <li><strong>Teachers:</strong> Pick a number 1-100 for student selection, use decision wheels for classroom activities</li>
+          <li><strong>Gamers:</strong> DnD dice online for campaigns, multiple dice roller for board games</li>
+          <li><strong>Decision making:</strong> "What should I do wheel" for daily choices, coin flip for quick decisions</li>
+          <li><strong>Events:</strong> Random number generation for raffles, prize draws, and contests</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <style>
+  .seo-section {
+    background: var(--dark-gray);
+    border-radius: 16px;
+    padding: 24px;
+    margin: 32px auto;
+    border: 1px solid var(--medium-gray);
+    max-width: 800px;
+  }
+
+  .faq-expandable {
+    margin: 0;
+  }
+
+  .faq-expandable summary {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.3em;
+    color: var(--gold);
+    cursor: pointer;
+    padding: 12px 0;
+    transition: color 0.2s ease;
+    list-style: none;
+    position: relative;
+  }
+
+  .faq-expandable summary:hover {
+    color: var(--orange);
+  }
+
+  .faq-expandable summary::before {
+    content: '▶';
+    position: absolute;
+    left: -24px;
+    transition: transform 0.2s ease;
+    color: var(--orange);
+  }
+
+  .faq-expandable[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .faq-expandable summary::after {
+    display: none;
+  }
+
+  .faq-content {
+    padding-top: 20px;
+    line-height: 1.7;
+    color: var(--cream);
+  }
+
+  .faq-content h3 {
+    font-family: 'Fredoka', sans-serif;
+    color: var(--gold);
+    font-size: 1.2em;
+    margin: 24px 0 12px 0;
+    font-weight: 600;
+  }
+
+  .faq-content h4 {
+    color: var(--orange);
+    font-size: 1.1em;
+    margin: 20px 0 10px 0;
+    font-weight: 600;
+  }
+
+  .faq-content p {
+    margin-bottom: 16px;
+    opacity: 0.9;
+  }
+
+  .faq-content ul {
+    margin: 12px 0 20px 20px;
+    opacity: 0.9;
+  }
+
+  .faq-content li {
+    margin-bottom: 8px;
+  }
+
+  .faq-content kbd {
+    background: var(--medium-gray);
+    border: 1px solid var(--light-gray);
+    border-radius: 4px;
+    padding: 2px 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    color: var(--orange);
+  }
+
+  .faq-content strong {
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  @media (max-width: 768px) {
+    .faq-expandable summary {
+      font-size: 1.1em;
+    }
+    
+    .faq-expandable summary::before {
+      left: -20px;
+    }
+    
+    .faq-content {
+      padding-top: 16px;
+    }
+    
+    .faq-content h3 {
+      font-size: 1.1em;
+    }
+  }
+  </style>
+
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="links">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+      <div class="copy">© RandomTools.app</div>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+

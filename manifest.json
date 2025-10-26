@@ -1,0 +1,16 @@
+{
+  "name": "RandomTools.app",
+  "short_name": "RandomTools", 
+  "description": "Random tools for gaming and decisions",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#667eea",
+  "background_color": "#764ba2",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192", 
+      "type": "image/png"
+    }
+  ]
+}

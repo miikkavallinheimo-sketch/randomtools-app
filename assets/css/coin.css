@@ -1,0 +1,173 @@
+:root{
+  /* Väripaletti */
+  --orange:#FB8B24; --gold:#FB8B24; --cream:#FFFFFF; --mint:#059669;
+  --black:#1A1A1A; --dark-gray:#121212; --medium-gray:#1f1f1f; --light-gray:#2a2a2a;
+}
+
+/* Perus */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--black);
+  min-height:100vh; color:var(--cream); line-height:1.6
+}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+
+/* Yläpalkki */
+.nav{
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--dark-gray);border-radius:16px;padding:20px 30px;margin-bottom:40px;
+  border:1px solid var(--light-gray)
+}
+.logo{font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.8em;color:var(--orange)}
+.logo a{color:inherit;text-decoration:none}
+.nav-menu{display:flex;gap:6px;flex-wrap:wrap}
+.nav-item{
+  font-family:'Fredoka',sans-serif;font-weight:500;color:var(--cream);text-decoration:none;
+  padding:10px 16px;border-radius:10px;transition:all .2s ease
+}
+.nav-item:hover{background:var(--light-gray);color:var(--orange)}
+.nav-item.active{background:var(--orange);color:var(--cream)}
+
+/* Otsikot & sisällöt */
+.game-header{background:var(--dark-gray);border-radius:16px;padding:26px;margin-bottom:12px;text-align:center;border:1px solid var(--light-gray)}
+.game-header h1{font-family:'Fredoka',sans-serif;font-weight:600;font-size:2em;color:var(--orange);margin-bottom:6px}
+.game-header p{opacity:.9;color:var(--cream)}
+.hint{margin-top:6px;font-size:.95em;opacity:.85}
+.game-content{background:var(--dark-gray);border-radius:16px;padding:20px 26px;border:1px solid var(--light-gray)}
+
+/* Lomake & napit */
+.input-group{margin-bottom:16px}
+label{display:block;margin-bottom:8px;font-weight:600;color:var(--orange)}
+input,select{
+  width:100%;padding:12px 16px;border:1px solid var(--light-gray);border-radius:10px;font-size:16px;
+  background:var(--medium-gray);color:var(--cream);transition:all .2s ease
+}
+input:focus,select:focus{outline:none;border-color:var(--orange);background:#2e2e2e}
+input::placeholder{color:rgba(255,255,250,.45)}
+.btn{
+  background:var(--orange);color:var(--cream);border:none;padding:14px 20px;border-radius:10px;font-size:16px;
+  font-weight:700;font-family:'Fredoka',sans-serif;cursor:pointer;transition:all .2s ease
+}
+.btn:hover{background:transparent;border:2px solid var(--orange);color:var(--orange);transform:translateY(-2px)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none;border:none}
+.btn.secondary{background:var(--mint);color:var(--cream);border:2px solid transparent}
+.btn.secondary:hover{background:transparent;border:2px solid var(--mint);color:var(--mint)}
+.btn.danger{background:#000;border:2px solid var(--orange);color:var(--cream)}
+.btn.danger:hover{background:transparent;color:var(--orange)}
+.btn.fs{background:transparent;border:1px dashed var(--orange);color:var(--orange);padding:12px 14px}
+
+/* Kolikko */
+.result-display{
+  margin:20px 0;display:flex;align-items:center;justify-content:center;background:#242424;border-radius:12px;padding:20px;border:2px dashed #2f2f2f;opacity:.92;color:var(--cream)
+}
+.coin-display{width:180px;height:180px;border-radius:50%;margin:20px auto;display:flex;align-items:center;justify-content:center;background:transparent !important;border:none !important;box-shadow:none !important;animation:none !important}
+.coin-3d{position:relative;width:180px;height:180px;border-radius:50%;transform-style:preserve-3d}
+.coin-3d.spinning{animation:coin-y-rotate 1.2s cubic-bezier(.25,.8,.25,1) infinite; will-change: transform; backface-visibility:hidden}
+.face{position:absolute;inset:0;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;backface-visibility:hidden;border:3px solid var(--orange);box-shadow:inset 0 0 18px rgba(0,0,0,.35), 0 8px 24px rgba(0,0,0,.4);background:var(--coin-bg);color:var(--coin-fg)}
+.face.front{transform:rotateY(0deg);--coin-bg:radial-gradient(circle at 30% 30%, #FFD27A, #B88400);--coin-fg:#1a1a1a}
+.face.back{transform:rotateY(180deg);--coin-bg:radial-gradient(circle at 30% 30%, #C96F6F, #7A1E1E);--coin-fg:#000}
+@keyframes coin-y-rotate{0%{transform:rotateY(0)}100%{transform:rotateY(360deg)}}
+.coin-face{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;transform:translateZ(2px)}
+.coin-label{font-family:'Quintessential',cursive;font-size:18px;letter-spacing:2px;text-transform:uppercase}
+.coin-label.tails{color:#000}
+.face img{width:72px;height:72px}
+.face .coin-label{margin-top:6px}
+
+/* Tulokset, listat, tilastot */
+.result{
+  background:#242424;color:var(--cream);padding:20px;border-radius:12px;margin:18px 0;text-align:center;
+  font-family:'JetBrains Mono',monospace;font-size:1.15em;font-weight:600;min-height:56px;display:none;align-items:center;justify-content:center;border:1px solid var(--orange)
+}
+
+/* Tilastoruudut */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:16px}
+.stat-card{background:#242424;padding:16px;border-radius:12px;text-align:center;border:1px solid #2f2f2f;transition:transform .2s ease}
+.stat-card:hover{transform:translateY(-3px);border-color:var(--orange)}
+.stat-number{font-family:'JetBrains Mono',monospace;font-size:1.25em;font-weight:800;color:var(--orange);margin-bottom:4px}
+.stat-label{font-size:.85em;opacity:.78;font-weight:600;color:var(--cream)}
+
+/* Muistilistat */
+.memory-section{margin-top:22px;padding-top:18px;border-top:1px solid var(--light-gray)}
+.memory-section h3{font-family:'Fredoka',sans-serif;font-weight:600;color:var(--orange);margin-bottom:10px;font-size:1.05em}
+.memory-list{background:#242424;border-radius:12px;padding:12px;max-height:220px;overflow-y:auto;margin-top:10px;border:1px solid #2f2f2f}
+.memory-item{background:#2a2a2a;padding:10px 12px;margin:8px 0;border-radius:8px;border-left:3px solid var(--orange);display:flex;gap:10px;align-items:center;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:.92em;color:var(--cream)}
+
+/* Layoutit */
+.flex-row{display:flex;gap:12px;align-items:end;flex-wrap:wrap}
+.flex-row>div{flex:1 1 200px}
+.page{display:block}
+
+/* Fullscreen overlay */
+.overlay{
+  position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.95);
+  display:none;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(4px)
+}
+.overlay .inner{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  max-width:90vw;max-height:90vh;text-align:center;position:relative
+}
+
+/* Fullscreen coin display - suurempi ja skaalautuva */
+.overlay .coin-display {
+  width: min(80vw, 80vh) !important;
+  height: min(80vw, 80vh) !important;
+  max-width: 400px !important;
+  max-height: 400px !important;
+  margin: 20px 0 !important;
+}
+
+.overlay .coin-3d {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.overlay .face img {
+  width: 30% !important;
+  height: 30% !important;
+  max-width: 120px !important;
+  max-height: 120px !important;
+}
+
+.overlay .coin-label {
+  font-size: clamp(24px, 4vw, 48px) !important;
+  margin-top: 10px !important;
+}
+
+/* Close-nappi kolikon alle */
+.overlay .controls{
+  position: absolute !important;
+  bottom: 50px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  margin-top: 0 !important;
+  display: flex !important;
+  gap: 12px !important;
+  justify-content: center !important;
+}
+
+/* Animaatiot */
+@keyframes pop-in{
+  0%{transform:scale(.8);opacity:.6}
+  50%{transform:scale(1.05)}
+  100%{transform:scale(1);opacity:1}
+}
+
+/* Responsiivisuus */
+@media(max-width:768px){
+  .container{padding:15px}
+  .nav{padding:15px 20px;margin-bottom:30px}
+  .logo{font-size:1.5em}
+  .nav-menu{gap:4px}
+  .nav-item{padding:8px 12px;font-size:0.9em}
+  .game-header{padding:20px}
+  .game-header h1{font-size:1.8em}
+  .game-content{padding:15px 20px}
+  .flex-row{flex-direction:column;align-items:stretch}
+  .flex-row>div{flex:1 1 auto}
+  .coin-display{width:140px;height:140px}
+  .coin-3d{width:140px;height:140px}
+  .face img{width:56px;height:56px}
+  .coin-label{font-size:14px}
+}

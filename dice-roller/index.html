@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Dice Roller | 1-5 Dice with Animation | RandomTools.app</title>
+  <meta name="description" content="Roll 1-5 dice online with 3D animation. Lock dice, track statistics. Perfect for D&D, board games, and tabletop RPGs." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/app.css?v=13" />
+  <link rel="stylesheet" href="/assets/css/dice.css?v=11" />
+
+  <!-- PWA meta tags -->
+  <meta name="application-name" content="RandomTools.app">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="RandomTools">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="canonical" href="https://randomtools.app/dice-roller/" />
+ 
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dice Roller | 1-5 Dice with Animation | RandomTools.app">
+  <meta property="og:description" content="Roll 1-5 dice online with 3D animation. Lock dice, track statistics. Perfect for D&D, board games, and tabletop RPGs.">
+  <meta property="og:url" content="https://randomtools.app/dice-roller/">
+  <meta property="og:image" content="/og-dice.svg">
+  <meta property="og:site_name" content="RandomTools.app">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dice Roller | 1-5 Dice with Animation | RandomTools.app">
+  <meta name="twitter:description" content="Roll 1-5 dice online with 3D animation. Lock dice, track statistics. Perfect for D&D, board games, and tabletop RPGs.">
+  <meta name="twitter:image" content="/og-dice.svg">
+
+  <!-- JSON-LD: WebPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "applicationCategory": "Game",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "name": "Dice Roller | 1-5 Dice with Animation | RandomTools.app",
+    "url": "https://randomtools.app/dice-roller/",
+    "inLanguage": "en",
+    "description": "Roll 1-5 dice online with 3D animation. Lock dice, track statistics.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "RandomTools.app",
+      "url": "https://randomtools.app/"
+    }
+     "datePublished": "2025-09-08",
+    "dateModified": "2025-09-08"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://randomtools.app/"},
+      {"@type": "ListItem", "position": 2, "name": "Dice Roller", "item": "https://randomtools.app/dice-roller/"}
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRE6H78BLY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GRE6H78BLY');
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="logo"><a href="/">RandomTools.app</a></div>
+      <div class="nav-menu">
+        <a href="/" class="nav-item">Home</a>
+        <a href="/random-number-generator/" class="nav-item">Numbers</a>
+        <a href="/dice-roller/" class="nav-item active">Dice</a>
+        <a href="/dnd_dice/" class="nav-item">D&D Dice</a>
+        <a href="/coin-flip/" class="nav-item">Coin</a>
+        <a href="/decision-wheel/" class="nav-item">Wheel</a>
+      </div>
+    </nav>
+
+    <div class="page active">
+      <div class="game-header">
+        <h1>Dice Roller</h1>
+        <p>Roll up to five dice with large faces. <span class="hint">Press <b>Space</b> or tap to roll; press again to end faster. Click dice to lock/unlock them.</span></p>
+      </div>
+      <div class="game-content">
+        <div class="flex-row">
+          <div>
+            <label>Number of dice</label>
+            <div class="dice-pills">
+              <div class="dice-pill active" data-count="1">1</div>
+              <div class="dice-pill" data-count="2">2</div>
+              <div class="dice-pill" data-count="3">3</div>
+              <div class="dice-pill" data-count="4">4</div>
+              <div class="dice-pill" data-count="5">5</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-end">
+            <button class="btn" id="btnRollDice">Roll</button>
+            <button class="btn" id="btnClearDice">Clear</button>
+            <button class="btn fs" id="btnFsDice">Fullscreen</button>
+          </div>
+        </div>
+        <div class="dice-container" id="diceDisplay">Press Space or tap</div>
+        <div id="diceResult" class="result"></div>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-number" id="currentSum">-</div><div class="stat-label">Sum</div></div>
+          <div class="stat-card"><div class="stat-number" id="totalRolls">0</div><div class="stat-label">Rolls</div></div>
+          <div class="stat-card"><div class="stat-number" id="averageRoll">-</div><div class="stat-label">Average</div></div>
+          <div class="stat-card"><div class="stat-number" id="highestRoll">-</div><div class="stat-label">Best</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen overlay -->
+  <div id="fullscreenOverlay" class="overlay">
+    <div class="inner" style="flex-direction:column;align-items:stretch;justify-content:flex-start">
+      
+      <div class="game-controls">
+        <div class="control-group">
+          <label>Number of dice</label>
+          <div class="dice-pills">
+            <div class="dice-pill active" data-count="1">1</div>
+            <div class="dice-pill" data-count="2">2</div>
+            <div class="dice-pill" data-count="3">3</div>
+            <div class="dice-pill" data-count="4">4</div>
+            <div class="dice-pill" data-count="5">5</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dice-container" id="fullscreenDiceInner"></div>
+      <div id="diceResultFs" class="result"></div>
+      
+      <!-- Roll-nappi omalla rivillä YLHÄÄLLÄ -->
+      <div class="roll-button-container" style="align-self:center">
+        <button class="btn" id="btnRollDiceFs">Roll</button>
+      </div>
+      
+      <!-- Clear ja Close napit ALHAALLA -->
+      <div class="controls" style="align-self:center">
+        <button class="btn" id="btnClearDiceFs">Clear</button>
+        <button class="btn danger" id="btnExitFs">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEO block for Dice Roller -->
+  <section class="seo-block" aria-labelledby="about-dice-roller" style="margin-top:32px">
+    <h2 id="about-dice-roller">About this Tabletop Dice Roller</h2>
+    <p>This free <strong>online dice roller</strong> lets you roll 1–5 dice with smooth animation, lock individual dice, and track basic stats. It's perfect for tabletop nights, classrooms, and quick decisions.</p>
+    <p>Great for RPGs: use it as a fast <strong>dice roller d&d</strong> companion during sessions, or for board games where physical dice aren't handy.</p>
+
+    <details>
+      <summary><strong>How it works</strong></summary>
+      <p>Each roll uses a browser-based pseudorandom process. Rolls are independent; probabilities reset every time you press <kbd>Space</kbd> or hit <em>Roll</em>. The UI shows sum, average, and your best roll for the current session.</p>
+    </details>
+
+    <details>
+      <summary><strong>Tips & use cases</strong></summary>
+      <ul>
+        <li>Press <kbd>Space</kbd> (or tap) to start rolling; press again to end the animation faster.</li>
+        <li>Click a die to lock it, then re-roll the rest—handy for games that allow partial re-rolls.</li>
+        <li>Go full screen for stream overlays or big tables.</li>
+        <li>Need other tools? Try the <a href="/random-number-generator/">Random Number Generator</a>, <a href="/coin-flip/">Coin Flip</a>, or <a href="/decision-wheel/">Decision Wheel</a>.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary><strong>FAQ</strong></summary>
+      <h3>Is this board game dice roller fair?</h3>
+      <p>It's designed to be unbiased over many rolls. The randomness is pseudorandom and suitable for everyday play and demos.</p>
+
+      <h3>Does it support D&D?</h3>
+      <p>For D&D games, we recommend our dedicated <a href="/dnd_dice/">D&D Dice Roller</a> with d20, d12, d10, d8, d6, d4, advantage/disadvantage, and modifiers. This dice roller is better suited for general board games and simple d6 rolls.</p>
+
+      <h3>Do you save my rolls?</h3>
+      <p>No. Rolling happens locally in your browser. See our Privacy Policy for site-wide analytics details.</p>
+
+      <h3>Can I use it offline?</h3>
+      <p>Yes. Once the page is cached (e.g., as a PWA), the roller works without a network connection.</p>
+    </details>
+
+    <p class="meta" style="opacity:.7;margin-top:8px">
+      Last updated: <time datetime="2025-09-07">September 7, 2025</time>
+    </p>
+  </section>
+
+  <!-- FAQPage structured data for the block above -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Is this dice roller fair?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"It is designed to be unbiased over many rolls. Randomness is pseudorandom and suitable for everyday play and demos."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Does it support D&D?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"For D&D games, we recommend our dedicated D&D Dice Roller with d20, d12, d10, d8, d6, d4, advantage/disadvantage, and modifiers. This dice roller is better suited for general board games and simple d6 rolls."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Do you save my rolls?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"No. Rolling happens locally in your browser. Refer to the site's Privacy Policy for general analytics details."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can I use it offline?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Once the page is cached (for example as a PWA), the dice roller works without a network connection."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Scripts -->
+    <script src="/assets/js/dice-standalone.js?v=6"></script>
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="links">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+      <div class="copy">© RandomTools.app</div>
+    </div>
+  </footer>
+</body>
+</html>

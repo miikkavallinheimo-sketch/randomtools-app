@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Coin Flip | Heads or Tails Decision Maker | RandomTools.app</title>
+  <meta name="description" content="Classic heads or tails coin flip. Make decisions, settle disputes, or leave it to chance. Free online coin flipper with statistics." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Quintessential&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/app.css?v=13" />
+  <link rel="stylesheet" href="/assets/css/coin.css?v=3" />
+
+  <!-- PWA meta tags -->
+  <meta name="application-name" content="RandomTools.app">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="RandomTools">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="canonical" href="https://randomtools.app/coin-flip/" />
+ 
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Coin Flip | Heads or Tails Decision Maker | RandomTools.app">
+  <meta property="og:description" content="Classic heads or tails coin flip. Make decisions, settle disputes, or leave it to chance. Free online coin flipper with statistics.">
+  <meta property="og:url" content="https://randomtools.app/coin-flip/">
+  <meta property="og:image" content="/og-coin.svg">
+  <meta property="og:site_name" content="RandomTools.app">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Coin Flip | Heads or Tails Decision Maker | RandomTools.app">
+  <meta name="twitter:description" content="Classic heads or tails coin flip. Make decisions, settle disputes, or leave it to chance. Free online coin flipper with statistics.">
+  <meta name="twitter:image" content="/og-coin.svg">
+
+  <!-- JSON-LD: WebPage + BreadcrumbList -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "applicationCategory": "Game",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "name": "Coin Flip | Heads or Tails Decision Maker | RandomTools.app",
+  "url": "https://randomtools.app/coin-flip/",
+  "inLanguage": "en",
+  "description": "Classic heads or tails coin flip. Make decisions, settle disputes, or leave it to chance.",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "RandomTools.app",
+    "url": "https://randomtools.app/"
+  },
+  "datePublished": "2025-09-08",
+  "dateModified": "2025-09-08"
+}
+</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://randomtools.app/"},
+      {"@type": "ListItem", "position": 2, "name": "Coin Flip", "item": "https://randomtools.app/coin-flip/"}
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRE6H78BLY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GRE6H78BLY');
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="logo"><a href="/">RandomTools.app</a></div>
+      <div class="nav-menu">
+        <a href="/" class="nav-item">Home</a>
+        <a href="/random-number-generator/" class="nav-item">Numbers</a>
+        <a href="/dice-roller/" class="nav-item">Dice</a>
+        <a href="/dnd_dice/" class="nav-item">D&D Dice</a>
+        <a href="/coin-flip/" class="nav-item active">Coin</a>
+        <a href="/decision-wheel/" class="nav-item">Wheel</a>
+      </div>
+    </nav>
+
+    <div class="page active">
+      <div class="game-header">
+        <h1>Coin Flip</h1>
+        <p><span class="hint">Press <b>Space</b> or tap; press again to end faster.</span></p>
+      </div>
+      <div class="game-content">
+        <div style="display:flex;gap:10px;align-items:center;margin-bottom:6px">
+          <button class="btn" id="btnFlipCoin">Flip</button>
+          <button class="btn fs" id="btnFsCoin">Fullscreen</button>
+        </div>
+        <div id="coinDisplay" class="result-display">Press Space or tap</div>
+        <div id="coinResult" class="result"></div>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-number" id="totalFlips">0</div><div class="stat-label">Flips</div></div>
+          <div class="stat-card"><div class="stat-number" id="headsCount">0</div><div class="stat-label">Heads</div></div>
+          <div class="stat-card"><div class="stat-number" id="tailsCount">0</div><div class="stat-label">Tails</div></div>
+          <div class="stat-card"><div class="stat-number" id="headsPercentage">50%</div><div class="stat-label">Heads %</div></div>
+        </div>
+        <div class="memory-section">
+          <h3>📈 Recent</h3>
+          <div id="flipHistory" class="memory-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen overlay -->
+  <div id="overlayCoin" class="overlay">
+    <div class="inner" id="overlayCoinInner"></div>
+    <div class="controls"><button class="btn danger" data-close="#overlayCoin">Close</button></div>
+  </div>
+
+  <!-- SEO block for Coin Flip -->
+  <section class="seo-block" aria-labelledby="about-coin-flip" style="margin-top:32px">
+    <h2 id="about-coin-flip">About this Coin Flipper</h2>
+    <p>Need to <strong>flip a coin</strong> right now? This free <strong>coin flipper</strong> runs entirely in your browser for fast, unbiased decisions—perfect for games, classroom picks, or everyday tie-breakers.</p>
+    <p>No sign-up, no tracking of individual results. If the page is cached (e.g., as a PWA), you can even flip a coin offline.</p>
+
+    <details>
+      <summary><strong>How it works</strong></summary>
+      <p>Each flip uses a browser-based pseudorandom process. Flips are independent events, so the probability resets to 50/50 each time. For long-run fairness, try larger batches: the heads/tails ratio should converge over many flips.</p>
+    </details>
+
+    <details>
+      <summary><strong>Tips & use cases</strong></summary>
+      <ul>
+        <li>Press <kbd>Space</kbd> to <em>flip a coin</em> instantly or to stop the animation sooner.</li>
+        <li>Go full screen for big displays during games or streams.</li>
+        <li>Have more than two options? Try our <a href="/decision-wheel/">Decision Wheel</a> instead.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary><strong>FAQ</strong></summary>
+      <h3>Is this coin flipper fair?</h3>
+      <p>It's designed to be unbiased over many flips. Randomness is pseudorandom but suitable for everyday decisions and games.</p>
+
+      <h3>Do you save my flip results?</h3>
+      <p>No. Flips happen locally in your browser. See our Privacy Policy for site-wide analytics info.</p>
+
+      <h3>Can I use it offline?</h3>
+      <p>Yes—once the page is cached, the <em>coin flipper</em> works without a network connection.</p>
+    </details>
+
+    <p class="meta" style="opacity:.7;margin-top:8px">
+      Last updated: <time datetime="2025-09-07">September 7, 2025</time>
+    </p>
+  </section>
+
+  <!-- FAQPage structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Is this coin flipper fair?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"It is designed to be unbiased over many flips. Randomness is pseudorandom and suitable for everyday decisions and games."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Do you save my flip results?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"No. Flips happen locally in your browser. Refer to the site's Privacy Policy for general analytics details."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can I use it offline?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Once the page is cached (for example as a PWA), the coin flipper works without a network connection."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Scripts -->
+  <script src="/assets/js/coin-standalone.js?v=6"></script>
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="links">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+      <div class="copy">© RandomTools.app</div>
+    </div>
+  </footer>
+</body>
+</html>

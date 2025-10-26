@@ -1,0 +1,49 @@
+# --- Domain canonicalization ---
+http://*randomtools.app/*           https://randomtools.app/:splat     301
+https://www.randomtools.app/*       https://randomtools.app/:splat     301
+
+# --- Static assets and sitemaps ---
+/robots.txt                         /robots.txt                        200
+/sitemap.xml                        /sitemap.xml                       200
+/sitemap.html                       /sitemap.html                      200
+
+# --- Static pages (direct .html targets) ---
+/about                              /about.html                        200
+/about/                             /about.html                        200
+/contact                            /contact.html                      200
+/contact/                           /contact.html                      200
+/privacy                            /privacy.html                      200
+/privacy/                           /privacy.html                      200
+/terms                              /terms.html                        200
+/terms/                             /terms.html                        200
+/sitemap                            /sitemap.html                      200
+/sitemap/                           /sitemap.html                      200
+
+# --- Main tool routes ---
+/random-number-generator            /index.html                        200
+/random-number-generator/           /index.html                        200
+/dice-roller                        /index.html                        200
+/dice-roller/                       /index.html                        200
+/coin-flip                          /index.html                        200
+/coin-flip/                         /index.html                        200
+/decision-wheel                     /index.html                        200
+/decision-wheel/                    /index.html                        200
+
+# --- Redirects from old URLs ---
+/numbers                            /random-number-generator/          301
+/numbers/                           /random-number-generator/          301
+/dice                               /dice-roller/                      301
+/dice/                              /dice-roller/                      301
+/coin                               /coin-flip/                        301
+/coin/                              /coin-flip/                        301
+/wheel                              /decision-wheel/                   301
+/wheel/                             /decision-wheel/                   301
+
+# --- Removed tools (redirect home) ---
+/cards                              /                                  301
+/cards/                             /                                  301
+/roulette                           /                                  301
+/roulette/                          /                                  301
+
+# --- Fallback ---
+/*                                  /index.html                        200

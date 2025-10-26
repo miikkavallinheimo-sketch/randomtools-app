@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Decision Wheel | Custom Wheel Spinner | RandomTools.app</title>
+  <meta name="description" content="Create custom decision wheels with up to 20 options. Spin to decide what to eat, watch, or do. Perfect for group decisions and random choices." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/app.css?v=12" />
+  <link rel="stylesheet" href="/assets/css/wheel.css?v=5" />
+
+  <!-- PWA meta tags -->
+  <meta name="application-name" content="RandomTools.app">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="RandomTools">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="canonical" href="https://randomtools.app/decision-wheel/" />
+ 
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Decision Wheel | Custom Wheel Spinner | RandomTools.app">
+  <meta property="og:description" content="Create custom decision wheels with up to 20 options. Spin to decide what to eat, watch, or do. Perfect for group decisions and random choices.">
+  <meta property="og:url" content="https://randomtools.app/decision-wheel/">
+  <meta property="og:image" content="/og-wheel.svg">
+  <meta property="og:site_name" content="RandomTools.app">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Decision Wheel | Custom Wheel Spinner | RandomTools.app">
+  <meta name="twitter:description" content="Create custom decision wheels with up to 20 options. Spin to decide what to eat, watch, or do. Perfect for group decisions and random choices.">
+  <meta name="twitter:image" content="/og-wheel.svg">
+
+  <!-- JSON-LD: WebPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+   "@type": "WebApplication",
+    "applicationCategory": "Game",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript"
+    "name": "Decision Wheel | Custom Wheel Spinner | RandomTools.app",
+    "url": "https://randomtools.app/decision-wheel/",
+    "inLanguage": "en",
+    "description": "Create custom decision wheels with up to 20 options. Spin to decide what to eat, watch, or do.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "RandomTools.app",
+      "url": "https://randomtools.app/"
+    }
+    "datePublished": "2025-09-08",
+    "dateModified": "2025-09-08"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://randomtools.app/"},
+      {"@type": "ListItem", "position": 2, "name": "Decision Wheel", "item": "https://randomtools.app/decision-wheel/"}
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRE6H78BLY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GRE6H78BLY');
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="logo"><a href="/">RandomTools.app</a></div>
+      <div class="nav-menu">
+        <a href="/" class="nav-item">Home</a>
+        <a href="/random-number-generator/" class="nav-item">Numbers</a>
+        <a href="/dice-roller/" class="nav-item">Dice</a>
+        <a href="/dnd_dice/" class="nav-item">D&D Dice</a>
+        <a href="/coin-flip/" class="nav-item">Coin</a>
+        <a href="/decision-wheel/" class="nav-item active">Wheel</a>
+      </div>
+    </nav>
+
+    <div class="page active">
+      <div class="game-header">
+        <h1>Decision Wheel</h1>
+        <p>2–20 sections with a clear result pointer.
+          <span class="hint">Press <b>Space</b> or tap to spin; press again to end faster. Result pointer is on the right side.</span></p>
+      </div>
+      <div class="game-content">
+        <div class="flex-row">
+          <div><label for="wheelSections">Number of sections (2–20)</label><input id="wheelSections" type="number" min="2" max="20" value="6" /></div>
+          <div>
+            <label for="wheelPreset">Preset</label>
+            <select id="wheelPreset">
+              <option value="">Custom</option>
+              <option value="yesno">Yes / No</option>
+              <option value="directions">Directions</option>
+              <option value="colors">Colors</option>
+              <option value="numbers">Numbers 1–6</option>
+              <option value="pizza">Pizza Toppings</option>
+              <option value="movies">Movie Genres</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="memory-section">
+          <h3>⚙️ Sections</h3>
+          <div id="wheelInputs" class="memory-list" style="max-height:none"></div>
+        </div>
+
+        <div class="wheel-container">
+          <div class="canvas-wrap wheel-wrap" id="wheelWrap">
+            <canvas id="wheelCanvas" width="420" height="420" style="border-radius:50%;border:2px solid var(--gold);display:block;"></canvas>
+            <div class="wheel-pointer-right"><span class="arrow"><img src="/arrow.svg" alt="" width="18" height="18" loading="eager" decoding="async" /></span></div>
+            <div class="wheel-pointer-label"><span class="label">WIN!</span></div>
+          </div>
+          
+          <div class="wheel-buttons">
+            <button class="btn" id="spinBtn">Spin</button>
+            <button class="btn fs" id="btnFsWheel">Fullscreen</button>
+          </div>
+        </div>
+
+        <div id="wheelResult" class="result" style="min-height:80px;display:flex !important;border:none;background:transparent;"></div>
+
+        <div class="memory-section">
+          <h3>📈 Recent</h3>
+          <div id="wheelHistory" class="memory-list" style="max-height:140px;"></div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-number" id="totalWheelSpins">0</div><div class="stat-label">Spins</div></div>
+          <div class="stat-card"><div class="stat-number" id="mostCommon">-</div><div class="stat-label">Most common</div></div>
+          <div class="stat-card"><div class="stat-number" id="uniqueResults">0</div><div class="stat-label">Unique</div></div>
+          <div class="stat-card"><div class="stat-number" id="lastResult">-</div><div class="stat-label">Last</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen overlay -->
+  <div id="overlayWheel" class="overlay clickable">
+    <div class="inner" id="overlayWheelInner">
+      <div class="canvas-wrap wheel-wrap" id="wheelWrapFs">
+        <canvas id="wheelCanvasFs" width="640" height="640" style="border-radius:50%;border:2px solid var(--gold);display:block;margin:auto"></canvas>
+        <div class="wheel-pointer-right"><span class="arrow"><img src="/arrow.svg" alt="" width="20" height="20" loading="eager" decoding="async" /></span></div>
+        <div class="wheel-pointer-label"><span class="label">WIN!</span></div>
+      </div>
+      <div id="wheelResultFs" class="result" style="margin-top:12px;min-height:80px;display:flex !important;border:none;background:transparent;"></div>
+      <div class="controls" style="margin-top:20px;">
+        <button class="btn" id="spinBtnFs">Spin</button>
+        <button class="btn danger" data-close="#overlayWheel">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEO block for Decision Wheel -->
+  <section class="seo-block" aria-labelledby="about-decision-wheel" style="margin-top:32px">
+    <h2 id="about-decision-wheel">About this Decision Wheel</h2>
+    <p>Build a custom, <strong>wheel of fortune</strong>–style spinner with 2–20 options. Type your choices, then press <kbd>Space</kbd> or click <em>Spin</em> to <strong>spin the wheel</strong> and pick a winner—great for team stand-ups, classroom picks, party games, or "what should we eat/watch/do?" moments.</p>
+    <p>The spinner runs entirely in your browser, with a clear result pointer. No sign-up needed; if the page is cached (e.g., as a PWA), you can even use it offline.</p>
+
+    <details>
+      <summary><strong>How it works</strong></summary>
+      <p>Each spin uses a browser-based pseudorandom process and independent trials; probabilities reset each time you <em>spin the wheel</em>. Over many spins, results should look unbiased. For transparent sessions, keep an eye on the on-page history and counts.</p>
+    </details>
+
+    <details>
+      <summary><strong>Tips & use cases</strong></summary>
+      <ul>
+        <li>Press <kbd>Space</kbd> to start/stop a spin faster.</li>
+        <li>Use presets (Yes/No, numbers, colors) for quick wheels.</li>
+        <li>Go full screen when presenting to a group.</li>
+        <li>Need only two options? Try our <a href="/coin-flip/">Coin Flip</a>. Need random integers? Use the <a href="/random-number-generator/">Random Number Selector</a>.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary><strong>FAQ</strong></summary>
+      <h3>How do I make a wheel of fortune?</h3>
+      <p>Enter 2–20 labels in the list, then click <em>Spin</em> to <em>spin the wheel</em>. The pointer marks the winning slice.</p>
+
+      <h3>Is the result fair?</h3>
+      <p>It's designed to be unbiased over many spins using a pseudorandom process suitable for everyday decisions and games.</p>
+
+      <h3>Can I use it offline?</h3>
+      <p>Yes—once the page is cached, the wheel works without a network connection.</p>
+    </details>
+
+    <p class="meta" style="opacity:.7;margin-top:8px">
+      Last updated: <time datetime="2025-09-07">September 7, 2025</time>
+    </p>
+  </section>
+
+  <!-- FAQPage structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"How do I make a wheel of fortune?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Enter 2–20 labels and click Spin to spin the wheel. The pointer marks the winning slice."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Is the result fair?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"It is designed to be unbiased over many spins using a browser-based pseudorandom process suitable for everyday decisions and games."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can I use it offline?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Once the page is cached (for example as a PWA), the decision wheel works without a network connection."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Scripts -->
+  <script src="/assets/js/wheel-standalone.js?v=6"></script>
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="links">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+      <div class="copy">© RandomTools.app</div>
+    </div>
+  </footer>
+</body>
+</html>

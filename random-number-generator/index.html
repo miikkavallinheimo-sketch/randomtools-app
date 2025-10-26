@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>Random Number Generator | Free Online Tool | RandomTools.app</title>
+  <meta name="description" content="Generate random numbers from any range. Free online random number generator with statistics and memory. Perfect for games, raffles, and random selections." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/app.css?v=13" />
+  <link rel="stylesheet" href="/assets/css/numbers.css?v=4" />
+
+  <!-- PWA meta tags -->
+  <meta name="application-name" content="RandomTools.app">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="RandomTools">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="canonical" href="https://randomtools.app/random-number-generator/" />
+  
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Random Number Generator | Free Online Tool | RandomTools.app">
+  <meta property="og:description" content="Generate random numbers from any range. Free online random number generator with statistics and memory. Perfect for games, raffles, and random selections.">
+  <meta property="og:url" content="https://randomtools.app/random-number-generator/">
+  <meta property="og:image" content="/og-numbers.svg">
+  <meta property="og:site_name" content="RandomTools.app">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Random Number Generator | Free Online Tool | RandomTools.app">
+  <meta name="twitter:description" content="Generate random numbers from any range. Free online random number generator with statistics and memory. Perfect for games, raffles, and random selections.">
+  <meta name="twitter:image" content="/og-numbers.svg">
+
+  <!-- JSON-LD: WebPage + BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+   "@type": "WebApplication",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "name": "Random Number Generator | Free Online Tool | RandomTools.app",
+    "url": "https://randomtools.app/random-number-generator/",
+    "inLanguage": "en",
+    "description": "Generate random numbers from any range. Free online random number generator with statistics and memory.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "RandomTools.app",
+      "url": "https://randomtools.app/"
+    }
+     "datePublished": "2025-09-08",
+    "dateModified": "2025-09-08"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://randomtools.app/"},
+      {"@type": "ListItem", "position": 2, "name": "Random Number Generator", "item": "https://randomtools.app/random-number-generator/"}
+    ]
+  }
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRE6H78BLY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-GRE6H78BLY');
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="logo"><a href="/">RandomTools.app</a></div>
+      <div class="nav-menu">
+        <a href="/" class="nav-item">Home</a>
+        <a href="/random-number-generator/" class="nav-item active">Numbers</a>
+        <a href="/dice-roller/" class="nav-item">Dice</a>
+        <a href="/dnd_dice/" class="nav-item">D&D Dice</a>
+        <a href="/coin-flip/" class="nav-item">Coin</a>
+        <a href="/decision-wheel/" class="nav-item">Wheel</a>
+      </div>
+    </nav>
+
+    <div class="page active">
+      <div class="game-header">
+        <h1>Random Number Generator</h1>
+        <p>Generate a number from any range. <span class="hint">Press <b>Space</b> or tap the area to start; press again to finish faster.</span></p>
+      </div>
+      <div class="game-content">
+        <div class="flex-row">
+          <div><label for="minNumber">Minimum</label><input type="number" id="minNumber" value="1" placeholder="Min…" /></div>
+          <div><label for="maxNumber">Maximum</label><input type="number" id="maxNumber" value="100" placeholder="Max…" /></div>
+        </div>
+        
+        <div class="flex-row" style="align-items:center;justify-content:space-between">
+          <button class="btn" id="btnGenerate">Generate</button>
+          <button class="btn fs" id="btnFsNumber">Fullscreen</button>
+        </div>
+        <div id="numberResult" class="result big-number">—</div>
+
+        <!-- Batch Generation Section -->
+        <div class="batch-section">
+          <h3>Batch Generation</h3>
+          <div class="flex-row">
+            <div><label for="batchCount">Count</label><input type="number" id="batchCount" value="10" placeholder="Amount…" min="1" max="10000" /></div>
+            <div><label for="exportFormat">Export Format</label>
+              <select id="exportFormat">
+                <option value="txt">TXT</option>
+                <option value="json">JSON</option>
+                <option value="csv">CSV</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn" id="btnBatchGenerate">Generate Batch</button>
+        </div>
+
+        <div class="memory-section">
+          <h3>💾 Memory</h3>
+          <div style="display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap">
+            <button class="btn secondary" id="saveBtn" style="display:none;">Save</button>
+            <button class="btn danger" id="clearMemoryBtn">Clear Saved</button>
+          </div>
+          <div id="memoryList" class="memory-list"></div>
+          <div class="stats-grid">
+            <div class="stat-card"><div class="stat-number" id="totalGenerated">0</div><div class="stat-label">Generated</div></div>
+            <div class="stat-card"><div class="stat-number" id="averageNumber">-</div><div class="stat-label">Average</div></div>
+            <div class="stat-card"><div class="stat-number" id="savedCount">0</div><div class="stat-label">Saved</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen overlay -->
+  <div id="overlayNumber" class="overlay clickable">
+    <div class="inner">
+      <div id="overlayNumberInner" class="fullscreen-number" style="font-family:'JetBrains Mono',monospace;font-size:clamp(4rem,18vw,14rem);text-align:center;background:var(--dark-gray);border:2px solid var(--gold);border-radius:20px;padding:clamp(20px,5vw,40px);margin-bottom:clamp(15px,3vh,30px);width:min(95vw,800px);height:min(60vh,400px);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,0.4);word-break:break-all;overflow:hidden">—</div>
+      <div class="controls"><button class="btn danger" data-close="#overlayNumber">Close</button></div>
+    </div>
+  </div>
+
+  <!-- SEO block for Random Number Generator -->
+<section class="seo-block" aria-labelledby="about-rng" style="margin-top:32px">
+  <h2 id="about-rng">Random Number Generator 1-1000 | Free Online Tool</h2>
+  <p>This free <strong>random number generator 1-1000</strong> lets you pick integers from any range in one click. Whether you need numbers 1-10, 1-100, or 1-1000, it's a fast, privacy-friendly <strong>number generator</strong> for games, raffles, classroom picks, and everyday decisions.</p>
+  <p>Runs entirely in your browser: press <kbd>Space</kbd> or tap to start, then press again to finish faster. Batch tools and exports (TXT/CSV/JSON) are included for larger draws.</p>
+
+  <details>
+    <summary><strong>Popular Number Ranges</strong></summary>
+    <ul>
+      <li><strong>Random number generator 1-10:</strong> Perfect for dice alternatives, team picking, or simple decisions</li>
+      <li><strong>Random number generator 1-100:</strong> Great for percentages, test scores, or classroom activities</li>
+      <li><strong>Random number generator 1-1000:</strong> Ideal for lottery simulations, large group selections, or statistical sampling</li>
+      <li><strong>Custom ranges:</strong> Set any minimum and maximum values to fit your specific needs</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary><strong>How it works</strong></summary>
+    <p>Each result is produced by a browser-based pseudorandom process. Draws are independent; probabilities reset every time you generate a number. For transparency, use the on-page counters and exports to review larger samples.</p>
+  </details>
+
+  <details>
+    <summary><strong>Tips & use cases</strong></summary>
+    <ul>
+      <li>Set your minimum and maximum, then click <em>Generate</em> or hit <kbd>Space</kbd>.</li>
+      <li>Use <em>Batch Generation</em> to create many numbers at once and export them for spreadsheets.</li>
+      <li>Go full screen for projectors or stream overlays.</li>
+      <li>Popular for random number generator 1-1000 draws in contests, giveaways, and statistical exercises.</li>
+      <li>Need choices instead of numbers? Try the <a href="/decision-wheel/">Decision Wheel</a> or <a href="/coin-flip/">Coin Flip</a>.</li>
+    </ul>
+  </details>
+
+  <details>
+    <summary><strong>FAQ</strong></summary>
+    <h3>Is this number generator fair?</h3>
+    <p>It's designed to be unbiased over many draws. Randomness is pseudorandom and suitable for everyday use.</p>
+
+    <h3>Can I generate multiple numbers at once?</h3>
+    <p>Yes—use the <em>Batch Generation</em> section and export results as TXT, CSV, or JSON.</p>
+
+    <h3>What's the maximum range for random number generation?</h3>
+    <p>You can generate numbers in any range, from simple 1-10 picks to large 1-1000 selections or even custom ranges like 500-2500.</p>
+
+    <h3>Do you store my numbers?</h3>
+    <p>No. Generation happens locally in your browser. See our Privacy Policy for site-wide analytics details.</p>
+
+    <h3>Can I use it offline?</h3>
+    <p>Yes—once cached (e.g., as a PWA), the <em>random number generator</em> works without a network connection.</p>
+  </details>
+
+  <p class="meta" style="opacity:.7;margin-top:8px">
+    Last updated: <time datetime="2025-09-07">September 7, 2025</time>
+  </p>
+</section>
+
+  <!-- FAQPage structured data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Is this number generator fair?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"It is designed to be unbiased over many draws. Randomness is pseudorandom and suitable for everyday use."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can I generate multiple numbers at once?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Use the Batch Generation section and export results as TXT, CSV, or JSON."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Do you store my numbers?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"No. Generation happens locally in your browser. Refer to the site's Privacy Policy for general analytics details."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can I use it offline?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Once the page is cached (for example as a PWA), the random number selector works without a network connection."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Scripts -->
+  <script src="/assets/js/numbers-standalone.js?v=3"></script>
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="links">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+      <div class="copy">© RandomTools.app</div>
+    </div>
+  </footer>
+</body>
+</html>

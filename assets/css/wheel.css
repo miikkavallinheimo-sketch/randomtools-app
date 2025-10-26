@@ -1,0 +1,217 @@
+:root{
+  /* Väripaletti */
+  --orange:#FB8B24; --gold:#FB8B24; --cream:#FFFFFF; --mint:#059669;
+  --black:#1A1A1A; --dark-gray:#121212; --medium-gray:#1f1f1f; --light-gray:#2a2a2a;
+  --pointer-flicker-duration: 0.8s;
+}
+
+/* Perus */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--black);
+  min-height:100vh; color:var(--cream); line-height:1.6
+}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+
+/* Yläpalkki */
+.nav{
+  display:flex;justify-content:space-between;align-items:center;
+  background:var(--dark-gray);border-radius:16px;padding:20px 30px;margin-bottom:40px;
+  border:1px solid var(--light-gray)
+}
+.logo{font-family:'Fredoka',sans-serif;font-weight:700;font-size:1.8em;color:var(--orange)}
+.logo a{color:inherit;text-decoration:none}
+.nav-menu{display:flex;gap:6px;flex-wrap:wrap}
+.nav-item{
+  font-family:'Fredoka',sans-serif;font-weight:500;color:var(--cream);text-decoration:none;
+  padding:10px 16px;border-radius:10px;transition:all .2s ease
+}
+.nav-item:hover{background:var(--light-gray);color:var(--orange)}
+.nav-item.active{background:var(--orange);color:var(--cream)}
+
+/* Otsikot & sisällöt */
+.game-header{background:var(--dark-gray);border-radius:16px;padding:26px;margin-bottom:12px;text-align:center;border:1px solid var(--light-gray)}
+.game-header h1{font-family:'Fredoka',sans-serif;font-weight:600;font-size:2em;color:var(--orange);margin-bottom:6px}
+.game-header p{opacity:.9;color:var(--cream)}
+.hint{margin-top:6px;font-size:.95em;opacity:.85}
+.game-content{background:var(--dark-gray);border-radius:16px;padding:20px 26px;border:1px solid var(--light-gray)}
+
+/* Lomake & napit */
+.input-group{margin-bottom:16px}
+label{display:block;margin-bottom:8px;font-weight:600;color:var(--orange)}
+input,select{
+  width:100%;padding:12px 16px;border:1px solid var(--light-gray);border-radius:10px;font-size:16px;
+  background:var(--medium-gray);color:var(--cream);transition:all .2s ease
+}
+input:focus,select:focus{outline:none;border-color:var(--orange);background:#2e2e2e}
+input::placeholder{color:rgba(255,255,250,.45)}
+.btn{
+  background:var(--orange);color:var(--cream);border:none;padding:14px 20px;border-radius:10px;font-size:16px;
+  font-weight:700;font-family:'Fredoka',sans-serif;cursor:pointer;transition:all .2s ease
+}
+.btn:hover{background:transparent;border:2px solid var(--orange);color:var(--orange);transform:translateY(-2px)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none;border:none}
+.btn.secondary{background:var(--mint);color:var(--cream);border:2px solid transparent}
+.btn.secondary:hover{background:transparent;border:2px solid var(--mint);color:var(--mint)}
+.btn.danger{background:#000;border:2px solid var(--orange);color:var(--cream)}
+.btn.danger:hover{background:transparent;color:var(--orange)}
+.btn.fs{background:transparent;border:1px dashed var(--orange);color:var(--orange);padding:12px 14px}
+
+/* Wheel */
+.wheel-container{display:flex;flex-direction:column;align-items:center;margin:10px 0;gap:20px}
+.canvas-wrap{display:inline-block;position:relative}
+.wheel-wrap{position:relative}
+
+.wheel-pointer-right{
+  position:absolute;
+  top:50%;
+  right:2px; /* pidä nuolen kärki juuri ulkokehän sisäreunassa */
+  left:auto;
+  transform:translateY(-50%);
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  background:transparent;
+  border:none;
+  border-radius:8px;
+  padding:0;
+  animation:pointer-flicker var(--pointer-flicker-duration) ease-in-out infinite alternate;
+  z-index:2;
+}
+.wheel-pointer-label{
+  position:absolute;
+  top:50%;
+  right:0;
+  transform:translate(calc(100% + 6px), -50%);
+  background:transparent;
+  z-index:1;
+}
+.wheel-pointer-right .arrow{
+  display:flex;
+  align-items:center;
+  filter:invert(1);
+}
+.wheel-pointer-right .arrow img{display:block;transform-origin:right center;transform:rotate(0deg) scale(1.2)}
+.wheel-pointer-right .label{
+  font-family:'Fredoka',sans-serif;
+  font-weight:700;
+  color:#ffffff;
+  font-size:16px;
+  letter-spacing:1px;
+}
+
+@keyframes pointer-flicker{
+  0%{opacity:0.8;transform:translateY(-50%) scale(1)}
+  100%{opacity:1;transform:translateY(-50%) scale(1.05)}
+}
+
+.wheel-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  align-items:center;
+  margin-left:15px;
+}
+
+/* Tulokset, listat, tilastot */
+.result{
+  background:#242424;color:var(--cream);padding:20px;border-radius:12px;margin:18px 0;text-align:center;
+  font-family:'JetBrains Mono',monospace;font-size:1.15em;font-weight:600;min-height:56px;display:none;align-items:center;justify-content:center;border:1px solid var(--orange)
+}
+
+/* Tilastoruudut */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin-top:16px}
+.stat-card{background:#242424;padding:16px;border-radius:12px;text-align:center;border:1px solid #2f2f2f;transition:transform .2s ease}
+.stat-card:hover{transform:translateY(-3px);border-color:var(--orange)}
+.stat-number{font-family:'JetBrains Mono',monospace;font-size:1.25em;font-weight:800;color:var(--orange);margin-bottom:4px}
+.stat-label{font-size:.85em;opacity:.78;font-weight:600;color:var(--cream)}
+
+/* Muistilistat */
+.memory-section{margin-top:22px;padding-top:18px;border-top:1px solid var(--light-gray)}
+.memory-section h3{font-family:'Fredoka',sans-serif;font-weight:600;color:var(--orange);margin-bottom:10px;font-size:1.05em}
+.memory-list{background:#242424;border-radius:12px;padding:12px;max-height:220px;overflow-y:auto;margin-top:10px;border:1px solid #2f2f2f}
+.memory-item{background:#2a2a2a;padding:10px 12px;margin:8px 0;border-radius:8px;border-left:3px solid var(--orange);display:flex;gap:10px;align-items:center;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:.92em;color:var(--cream)}
+
+/* Wheel inputs kaksi saraketta */
+#wheelInputs{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
+
+/* Layoutit */
+.flex-row{display:flex;gap:12px;align-items:end;flex-wrap:wrap}
+.flex-row>div{flex:1 1 200px}
+.page{display:block}
+
+/* Fullscreen overlay */
+.overlay{
+  position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.95);
+  display:none;align-items:center;justify-content:center;z-index:1000;backdrop-filter:blur(4px)
+}
+.overlay .inner{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  max-width:90vw;max-height:90vh;text-align:center;position:relative
+}
+.overlay .controls{margin-top:20px;display:flex;gap:12px;justify-content:center}
+
+/* Animaatiot */
+@keyframes pop-in{
+  0%{transform:scale(.8);opacity:.6}
+  50%{transform:scale(1.05)}
+  100%{transform:scale(1);opacity:1}
+}
+
+/* Responsiivisuus */
+@media(max-width:768px){
+  .container{padding:15px}
+  .nav{padding:15px 20px;margin-bottom:30px}
+  .logo{font-size:1.5em}
+  .nav-menu{gap:4px;margin-left:auto;justify-content:flex-end}
+  .nav-item{padding:8px 12px;font-size:0.9em}
+  .game-header{padding:20px}
+  .game-header h1{font-size:1.8em}
+  .game-content{padding:15px 20px}
+  .flex-row{flex-direction:column;align-items:stretch}
+  .flex-row>div{flex:1 1 auto}
+  
+  #wheelCanvas{width:min(88vw,88vh);height:min(88vw,88vh)}
+  #wheelCanvasFs{width:min(82vw,82vh);height:min(82vw,82vh);display:block;margin:0 auto}
+  
+  .wheel-pointer-right{
+    right:2px !important;
+    left:auto !important;
+    top:50% !important;
+    transform:translateY(-50%) !important;
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+    padding:0 !important;
+    align-items:center !important;
+  }
+  .wheel-pointer-label{
+    top:50% !important;
+    right:2px !important;
+    transform:translate(0, calc(-50% + 28px)) !important;
+    text-align:center !important;
+  }
+  .wheel-pointer-right .label{
+    writing-mode:horizontal-tb !important;
+    transform:none !important;
+    margin:2px 0 0 0 !important;
+    font-size:14px !important;
+  }
+  
+  .wheel-buttons .btn#spinBtn{margin-left:15px !important}
+  .wheel-buttons{
+    position:static !important;
+    left:auto !important;
+    align-items:center !important;
+    justify-content:center !important;
+    flex-direction:column !important;
+  }
+  
+  .wheel-flex{flex-direction:column;gap:15px}
+}

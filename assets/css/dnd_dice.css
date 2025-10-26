@@ -1,0 +1,705 @@
+/* D&D Dice Styles */
+
+/* Header */
+.description{
+  color:var(--cream);
+  opacity:0.7;
+}
+
+/* Dice Animations */
+@keyframes d4-roll {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  33% { transform: rotateX(120deg) rotateY(60deg) rotateZ(var(--roll-z1)); }
+  66% { transform: rotateX(240deg) rotateY(120deg) rotateZ(var(--roll-z2)); }
+  100% { transform: rotateX(360deg) rotateY(180deg) rotateZ(var(--roll-z3)); }
+}
+
+@keyframes d6-roll {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  25% { transform: rotateX(90deg) rotateY(var(--roll-y1)) rotateZ(var(--roll-z1)); }
+  50% { transform: rotateX(180deg) rotateY(var(--roll-y2)) rotateZ(var(--roll-z2)); }
+  75% { transform: rotateX(270deg) rotateY(var(--roll-y3)) rotateZ(var(--roll-z3)); }
+  100% { transform: rotateX(360deg) rotateY(var(--roll-y4)) rotateZ(var(--roll-z4)); }
+}
+
+@keyframes d8-roll {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  20% { transform: rotateX(72deg) rotateY(var(--roll-y1)) rotateZ(var(--roll-z1)); }
+  40% { transform: rotateX(144deg) rotateY(var(--roll-y2)) rotateZ(var(--roll-z2)); }
+  60% { transform: rotateX(216deg) rotateY(var(--roll-y3)) rotateZ(var(--roll-z3)); }
+  80% { transform: rotateX(288deg) rotateY(var(--roll-y4)) rotateZ(var(--roll-z4)); }
+  100% { transform: rotateX(360deg) rotateY(var(--roll-y5)) rotateZ(var(--roll-z5)); }
+}
+
+@keyframes d10-roll {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  25% { transform: rotateX(90deg) rotateY(var(--roll-y1)) rotateZ(var(--roll-z1)); }
+  50% { transform: rotateX(180deg) rotateY(var(--roll-y2)) rotateZ(var(--roll-z2)); }
+  75% { transform: rotateX(270deg) rotateY(var(--roll-y3)) rotateZ(var(--roll-z3)); }
+  100% { transform: rotateX(360deg) rotateY(var(--roll-y4)) rotateZ(var(--roll-z4)); }
+}
+
+@keyframes d12-roll {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  20% { transform: rotateX(72deg) rotateY(var(--roll-y1)) rotateZ(var(--roll-z1)); }
+  40% { transform: rotateX(144deg) rotateY(var(--roll-y2)) rotateZ(var(--roll-z2)); }
+  60% { transform: rotateX(216deg) rotateY(var(--roll-y3)) rotateZ(var(--roll-z3)); }
+  80% { transform: rotateX(288deg) rotateY(var(--roll-y4)) rotateZ(var(--roll-z4)); }
+  100% { transform: rotateX(360deg) rotateY(var(--roll-y5)) rotateZ(var(--roll-z5)); }
+}
+
+@keyframes d20-roll {
+  0% { transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); }
+  20% { transform: rotateX(72deg) rotateY(var(--roll-y1)) rotateZ(var(--roll-z1)); }
+  40% { transform: rotateX(144deg) rotateY(var(--roll-y2)) rotateZ(var(--roll-z2)); }
+  60% { transform: rotateX(216deg) rotateY(var(--roll-y3)) rotateZ(var(--roll-z3)); }
+  80% { transform: rotateX(288deg) rotateY(var(--roll-y4)) rotateZ(var(--roll-z4)); }
+  100% { transform: rotateX(360deg) rotateY(var(--roll-y5)) rotateZ(var(--roll-z5)); }
+}
+
+/* Header */
+h1{
+  color:#FB8B24;
+  font-family:'Fredoka',sans-serif;
+  font-weight:600;
+  font-size:32px;
+}
+
+.dice-container span{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100px;
+  height:100px;
+  background:var(--dark-gray);
+  border:2px solid var(--orange);
+  border-radius:12px;
+  perspective:1000px;
+  transform-style:preserve-3d;
+  position:relative;
+  font-family:'JetBrains Mono',monospace;
+  font-weight:600;
+  font-size:32px;
+}
+
+/* D4 - Tetrahedron */
+.dice-container span[data-type="d4"]::before{
+  content:'d4';
+  position:absolute;
+  top:6px;
+  left:6px;
+  font-size:12px;
+  opacity:0.5;
+}
+
+/* D6 - Cube */
+.dice-container span[data-type="d6"]::before{
+  content:'d6';
+  position:absolute;
+  top:6px;
+  left:6px;
+  font-size:12px;
+  opacity:0.5;
+}
+
+/* D8 - Octahedron */
+.dice-container span[data-type="d8"]::before{
+  content:'d8';
+  position:absolute;
+  top:6px;
+  left:6px;
+  font-size:12px;
+  opacity:0.5;
+}
+
+/* D10 - Pentagonal trapezohedron */
+.dice-container span[data-type="d10"]::before{
+  content:'d10';
+  position:absolute;
+  top:6px;
+  left:6px;
+  font-size:12px;
+  opacity:0.5;
+}
+
+/* D12 - Regular dodecahedron */
+.dice-container span[data-type="d12"]::before{
+  content:'d12';
+  position:absolute;
+  top:6px;
+  left:6px;
+  font-size:12px;
+  opacity:0.5;
+}
+
+/* D20 - Regular icosahedron */
+.dice-container span[data-type="d20"]::before{
+  content:'d20';
+  position:absolute;
+  top:6px;
+  left:6px;
+  font-size:12px;
+  opacity:0.5;
+}
+
+/* D100 - Percentile */
+.dice-container span[data-type="d100"]::before{
+  content:'d100';
+  position:absolute;
+  top:6px;
+  left:6px;
+  font-size:12px;
+  opacity:0.5;
+}
+
+/* Advantage/Disadvantage results */
+.adv-result{
+  position:relative;
+  width:190px;  /* 2 * 80px + 10px väli + 2 * 10px reunus */
+  height:100px; /* 80px + 2 * 10px reunus */
+  margin:0 auto;
+  padding:10px;
+  box-sizing:border-box;
+  display:flex;
+  gap:10px;    /* noppien väli */
+  align-items:center;
+  justify-content:center;
+  border:2px solid var(--orange);
+  border-radius:12px;
+  background:var(--dark-gray);
+}
+
+.adv-result span{
+  width:80px;  /* nopan koko */
+  height:80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  position:relative;
+}
+
+/* Poista ylimääräiset reunat nopista */
+.adv-result span::before{
+  border:none !important;
+}
+
+.adv-result .selected{
+  color:var(--cream);
+}
+
+.adv-result .dimmed{
+  color:var(--cream);
+  opacity:0.3;
+  border-color:var(--light-gray);
+}
+
+/* Critical hits and fails */
+.dice-container span.critical{
+  border-color:var(--gold);
+  color:var(--gold);
+  box-shadow:0 0 15px rgba(255,215,0,0.3);
+}
+
+.dice-container span.fail{
+  border-color:var(--red);
+  color:var(--red);
+  box-shadow:0 0 15px rgba(255,0,0,0.3);
+}
+
+.dice-container span.rolling{
+  animation-duration:0.6s;
+  animation-timing-function:ease-out;
+}
+
+.dice-container span[data-type="d4"].rolling{ animation-name:d4-roll; }
+.dice-container span[data-type="d6"].rolling{ animation-name:d6-roll; }
+.dice-container span[data-type="d8"].rolling{ animation-name:d8-roll; }
+.dice-container span[data-type="d10"].rolling{ animation-name:d10-roll; }
+.dice-container span[data-type="d12"].rolling{ animation-name:d12-roll; }
+.dice-container span[data-type="d20"].rolling{ animation-name:d20-roll; }
+.dice-container span[data-type="d100"].rolling{ animation-name:d10-roll; }
+
+/* Dice Container */
+.dice-container{
+  min-height:120px;
+  padding:20px;
+  margin:20px 0;
+  background:var(--dark-gray);
+  border:1px solid var(--light-gray);
+  border-radius:12px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  align-items:center;
+  justify-content:center;
+  font-family:'JetBrains Mono',monospace;
+  font-size:24px;
+  color:var(--cream);
+}
+
+.dice-container.large{
+  min-height:200px;
+  padding:30px;
+  font-size:32px;
+}
+
+/* Dice Pills */
+.dice-pills,
+.advantage-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:8px;
+  min-height:0; /* Estä ylimääräinen korkeus */
+}
+
+.dice-pill,
+.dice-count-pill,
+.advantage-pill{
+  padding:10px 16px;
+  background:var(--dark-gray);
+  border:1px solid var(--light-gray);
+  border-radius:8px;
+  color:var(--cream);
+  cursor:pointer;
+  font-family:'JetBrains Mono',monospace;
+  font-size:16px;
+  transition:all .2s ease;
+  height:fit-content; /* Vain sisällön korkeus */
+}
+
+.dice-pill:hover,
+.dice-count-pill:hover,
+.advantage-pill:hover{
+  border-color:var(--orange);
+  background:var(--dark-gray);
+}
+
+.dice-pill.active,
+.dice-count-pill.active,
+.advantage-pill.active{
+  background:var(--orange);
+  border-color:var(--orange);
+  color:var(--dark-gray);
+}
+
+/* D&D Mechanics */
+.dnd-mechanics{
+  margin:20px 0;
+  min-height:0; /* Estä ylimääräinen korkeus */
+}
+
+/* Control Groups */
+.control-group{
+  min-height:0; /* Estä ylimääräinen korkeus */
+  height:fit-content; /* Vain sisällön korkeus */
+}
+
+/* Modifier Input */
+#modifier{
+  width:80px;
+  padding:10px 16px;
+  background:var(--dark-gray);
+  border:1px solid var(--light-gray);
+  border-radius:8px;
+  color:var(--cream);
+  font-family:'JetBrains Mono',monospace;
+  font-size:16px;
+}
+
+/* Presets */
+.presets-section{
+  margin:20px 0;
+}
+
+.preset-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+  gap:10px;
+  margin-top:8px;
+}
+
+.preset-btn{
+  padding:12px;
+  background:var(--dark-gray);
+  border:1px solid var(--light-gray);
+  border-radius:8px;
+  color:var(--cream);
+  cursor:pointer;
+  font-family:'Fredoka',sans-serif;
+  font-size:14px;
+  transition:all .2s ease;
+  text-align:center;
+}
+
+.preset-btn:hover{
+  border-color:var(--orange);
+  background:var(--orange);
+  color:var(--dark-gray);
+}
+
+/* Results */
+.result{
+  margin:20px 0;
+  font-family:'JetBrains Mono',monospace;
+  font-size:18px;
+  color:var(--cream);
+  text-align:center;
+}
+
+.result .total{
+  font-size:24px;
+  font-weight:600;
+  color:var(--orange);
+}
+
+.result .critical{
+  color:var(--gold);
+  font-weight:600;
+}
+
+.result .fail{
+  color:var(--red);
+  font-weight:600;
+}
+
+/* Stats Grid */
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(120px, 1fr));
+  gap:15px;
+  margin-top:30px;
+}
+
+.stat-card{
+  padding:15px;
+  background:var(--dark-gray);
+  border:1px solid var(--light-gray);
+  border-radius:8px;
+  text-align:center;
+}
+
+.stat-number{
+  font-family:'JetBrains Mono',monospace;
+  font-size:24px;
+  font-weight:600;
+  color:var(--orange);
+}
+
+.stat-label{
+  margin-top:5px;
+  font-size:14px;
+  color:var(--cream);
+  opacity:.7;
+}
+
+/* Logo */
+.logo a{
+  color:var(--orange);
+  text-decoration:none;
+  font-family:'Fredoka',sans-serif;
+  font-weight:600;
+  font-size:24px;
+}
+
+/* Fullscreen */
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:var(--dark-gray);
+  z-index:9999;
+  display:none;
+}
+
+.overlay.active{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.overlay .inner{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding:20px;
+  max-width:800px;
+  margin:0 auto;
+  min-height:0; /* Estä ylimääräinen korkeus */
+  height:fit-content; /* Vain sisällön korkeus */
+}
+
+.game-controls{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  align-items:center;
+  text-align:center;
+  min-height:0; /* Estä ylimääräinen korkeus */
+  height:fit-content; /* Vain sisällön korkeus */
+}
+
+.fs-controls{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  width:100%;
+  max-width:800px;
+  min-height:0; /* Estä ylimääräinen korkeus */
+  height:fit-content; /* Vain sisällön korkeus */
+}
+
+.control-row{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  min-height:0; /* Estä ylimääräinen korkeus */
+  height:fit-content; /* Vain sisällön korkeus */
+}
+
+.control-group{
+  flex:1;
+  min-width:0;
+  max-width:400px;
+  min-height:0; /* Estä ylimääräinen korkeus */
+  height:fit-content; /* Vain sisällön korkeus */
+}
+
+.control-group label{
+  font-size:14px;
+  margin-bottom:6px;
+  display:block;
+  min-height:0; /* Estä ylimääräinen korkeus */
+  height:fit-content; /* Vain sisällön korkeus */
+}
+
+.dice-count-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  justify-content:center;
+}
+
+.dice-count-pill{
+  padding:10px 16px;
+  background:var(--dark-gray);
+  border:1px solid var(--light-gray);
+  border-radius:8px;
+  color:var(--cream);
+  cursor:pointer;
+  font-family:'JetBrains Mono',monospace;
+  font-size:16px;
+  transition:all .2s ease;
+  margin:2px;
+}
+
+.dice-count-pill:hover{
+  border-color:var(--orange);
+}
+
+.dice-count-pill.active{
+  background:var(--orange);
+  border-color:var(--orange);
+  color:var(--dark-gray);
+}
+
+#modifierFs{
+  width:100%;
+  padding:8px 12px;
+  background:var(--dark-gray);
+  border:1px solid var(--light-gray);
+  border-radius:8px;
+  color:var(--cream);
+  font-family:'JetBrains Mono',monospace;
+  font-size:14px;
+  text-align:center;
+}
+
+.roll-button-container{
+  display:flex;
+  justify-content:center;
+  margin:10px 0;
+}
+
+.roll-button-container .btn{
+  font-size:20px;
+  padding:14px 28px;
+  min-width:180px;
+}
+
+.controls{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+}
+
+.controls .btn{
+  font-size:16px;
+  padding:10px 20px;
+  min-width:100px;
+}
+
+/* Controls */
+.flex-row .btn{
+  padding:12px 24px;
+  font-size:16px;
+  min-width:120px;
+}
+
+.flex-row .btn.primary{
+  font-size:18px;
+  padding:14px 28px;
+}
+
+.flex-row > div{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  min-height:0;
+  height:fit-content;
+}
+
+/* Mobile margins */
+.game-content{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .game-content{
+    gap:8px !important;
+  }
+  
+  .game-header{
+    margin:0 0 4px 0 !important;
+  }
+  
+  h1{
+    margin:0 0 2px 0 !important;
+    font-size:24px !important;
+  }
+  
+  .description{
+    margin:0 !important;
+    font-size:14px !important;
+  }
+  
+  .dice-container{
+    min-height:60px !important;
+    padding:4px !important;
+    margin:4px 0 !important;
+    font-size:20px;
+  }
+  
+  .dice-container span{
+    width:80px !important;
+    height:80px !important;
+  }
+  
+  .dice-container.large{
+    font-size:28px;
+  }
+  
+  .control-group{
+    margin:2px 0 !important;
+  }
+  
+  label{
+    margin:2px 0 !important;
+    font-size:13px !important;
+    text-align:center;
+  }
+  
+  .dice-pills,
+  .advantage-pills{
+    margin:2px 0 !important;
+    gap:4px !important;
+    justify-content:center;
+  }
+  
+  /* Siirrä Number of Dice -teksti omalle riville */
+  .control-group label{
+    display:block !important;
+    margin-bottom:4px !important;
+    text-align:center !important;
+  }
+
+  /* Dice Type ja Number of Dice -pillerit */
+  .dice-pill,
+  .dice-count-pill{
+    padding:6px 12px !important;
+    font-size:14px !important;
+    margin:2px !important;
+    border-color:var(--light-gray) !important;
+  }
+
+  /* Advantage/Disadvantage -pillerit */
+  .advantage-pill{
+    padding:3px 6px !important;
+    font-size:12px !important;
+    margin:1px !important;
+    border-color:var(--light-gray) !important;
+  }
+  
+  #modifier{
+    padding:6px 12px !important;
+    font-size:14px !important;
+    height:36px !important;
+    margin:0 auto !important;
+  }
+  
+  .flex-row{
+    flex-direction:column;
+    margin:4px 0 !important;
+    gap:4px !important;
+  }
+  
+  .flex-row .btn{
+    padding:8px 16px !important;
+    font-size:14px !important;
+    min-width:100px !important;
+  }
+  
+  .flex-row .btn.primary{
+    padding:10px 20px !important;
+    font-size:16px !important;
+  }
+  
+  .flex-row > div{
+    flex-wrap:wrap;
+    gap:8px !important;
+  }
+  
+  .preset-grid,
+  .stats-grid{
+    grid-template-columns:repeat(2, 1fr);
+    gap:4px !important;
+    margin-top:4px !important;
+  }
+  
+  .dnd-mechanics,
+  .presets-section,
+  details{
+    margin:8px 0 !important;
+  }
+  
+  details > *{
+    margin:4px 0 !important;
+    font-size:14px !important;
+  }
+  
+  details summary{
+    padding:4px 0 !important;
+  }
+  
+  .adv-result{
+    margin:4px auto !important;
+  }
+}

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>D&D Dice Roller | Polyhedral Dice with Advantage | RandomTools.app</title>
+  <meta name="description" content="Roll D&D dice online with advantage/disadvantage, modifiers, and critical detection. Perfect for D&D 5e, tabletop RPGs, and dungeon masters." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/app.css?v=13" />
+  <link rel="stylesheet" href="/assets/css/dnd_dice.css?v=1" />
+
+  <!-- PWA meta tags -->
+  <meta name="application-name" content="RandomTools.app">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="RandomTools">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+  <link rel="canonical" href="https://randomtools.app/dnd_dice/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="D&D Dice Roller | Polyhedral Dice with Advantage | RandomTools.app">
+  <meta property="og:description" content="Roll D&D dice online with advantage/disadvantage, modifiers, and critical detection. Perfect for D&D 5e, tabletop RPGs, and dungeon masters.">
+  <meta property="og:url" content="https://randomtools.app/dnd_dice/">
+  <meta property="og:image" content="/og-dnd-dice.svg">
+  <meta property="og:site_name" content="RandomTools.app">
+
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "D&D Dice Roller | RandomTools.app",
+  "url": "https://randomtools.app/dnd_dice/",
+  "applicationCategory": "Game",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "RandomTools.app",
+    "url": "https://randomtools.app"
+  },
+  "datePublished": "2025-09-08",
+  "dateModified": "2025-09-08"
+}
+</script>
+
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRE6H78BLY"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GRE6H78BLY');
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <div class="logo"><a href="/">RandomTools.app</a></div>
+      <div class="nav-menu">
+        <a href="/" class="nav-item">Home</a>
+        <a href="/random-number-generator/" class="nav-item">Numbers</a>
+        <a href="/dice-roller/" class="nav-item">Dice</a>
+        <a href="/dnd_dice/" class="nav-item active">D&D Dice</a>
+        <a href="/coin-flip/" class="nav-item">Coin</a>
+        <a href="/decision-wheel/" class="nav-item">Wheel</a>
+      </div>
+    </nav>
+
+    <div class="page active">
+      <div class="game-header">
+        <h1>D&D Dice Roller</h1>
+        <p class="description">Professional D&D dice with advantage, modifiers, and critical detection. Press <b>Space</b> to roll. Perfect for D&D 5e and tabletop RPGs.</p>
+      </div>
+      
+      <div class="game-content">
+        <!-- Dice Type and Count -->
+        <div class="flex-row">
+          <div>
+            <label>Dice Type</label>
+            <div class="dice-pills">
+              <div class="dice-pill" data-type="d4">d4</div>
+              <div class="dice-pill" data-type="d6">d6</div>
+              <div class="dice-pill" data-type="d8">d8</div>
+              <div class="dice-pill" data-type="d10">d10</div>
+              <div class="dice-pill" data-type="d12">d12</div>
+              <div class="dice-pill active" data-type="d20">d20</div>
+              <div class="dice-pill" data-type="d100">d100</div>
+            </div>
+          </div>
+          <div>
+            <label>Number of Dice</label>
+            <div class="dice-pills">
+              <div class="dice-count-pill active" data-count="1">1</div>
+              <div class="dice-count-pill" data-count="2">2</div>
+              <div class="dice-count-pill" data-count="3">3</div>
+              <div class="dice-count-pill" data-count="4">4</div>
+              <div class="dice-count-pill" data-count="6">6</div>
+              <div class="dice-count-pill" data-count="8">8</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- D&D Mechanics -->
+        <div class="dnd-mechanics">
+          <div class="flex-row">
+            <div>
+              <label>Roll Type</label>
+              <div class="advantage-pills">
+                <div class="advantage-pill active" data-type="normal">Normal</div>
+                <div class="advantage-pill" data-type="advantage">Advantage</div>
+                <div class="advantage-pill" data-type="disadvantage">Disadvantage</div>
+              </div>
+            </div>
+            <div>
+              <label for="modifier">Modifier</label>
+              <input type="number" id="modifier" value="0" min="-20" max="20" placeholder="+/-">
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Presets -->
+        <div class="presets-section">
+          <label>Quick D&D Rolls</label>
+          <div class="preset-grid">
+            <button class="preset-btn" data-preset="attack">⚔️ Attack (d20)</button>
+            <button class="preset-btn" data-preset="damage">💥 Damage (d8)</button>
+            <button class="preset-btn" data-preset="fireball">🔥 Fireball (8d6)</button>
+            <button class="preset-btn" data-preset="healing">❤️ Healing (d8)</button>
+            <button class="preset-btn" data-preset="stats">📊 Stats (4d6)</button>
+            <button class="preset-btn" data-preset="initiative">⚡ Initiative (d20)</button>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex-row">
+          <div style="display:flex;gap:10px;align-items:flex-end;justify-content:center">
+            <button class="btn secondary" id="btnClearDice">Clear</button>
+            <button class="btn primary" id="btnRollDice">Roll Dice</button>
+            <button class="btn fs" id="btnFsDice">Fullscreen</button>
+          </div>
+        </div>
+
+        <!-- Dice Display -->
+        <div class="dice-container" id="diceDisplay">Press Space or click Roll Dice</div>
+        <div id="diceResult" class="result"></div>
+
+        <!-- Statistics -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" id="currentSum">-</div>
+            <div class="stat-label">Total</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="totalRolls">0</div>
+            <div class="stat-label">Rolls</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="criticalHits">0</div>
+            <div class="stat-label">Nat 20s</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="criticalFails">0</div>
+            <div class="stat-label">Nat 1s</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="advantageRolls">0</div>
+            <div class="stat-label">Advantage</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="averageRoll">-</div>
+            <div class="stat-label">Average</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Overlay -->
+  <div id="fullscreenOverlay" class="overlay">
+    <div class="inner">
+      <div class="game-controls">
+        <div class="fs-controls">
+          <div class="control-row">
+            <div class="control-group">
+              <label>Dice Type</label>
+              <div class="dice-pills">
+                <div class="dice-pill" data-type="d4">d4</div>
+                <div class="dice-pill" data-type="d6">d6</div>
+                <div class="dice-pill" data-type="d8">d8</div>
+                <div class="dice-pill" data-type="d10">d10</div>
+                <div class="dice-pill" data-type="d12">d12</div>
+                <div class="dice-pill active" data-type="d20">d20</div>
+                <div class="dice-pill" data-type="d100">d100</div>
+              </div>
+            </div>
+            <div class="control-group">
+              <label>Number of Dice</label>
+              <div class="dice-count-pills">
+                <div class="dice-count-pill active" data-count="1">1</div>
+                <div class="dice-count-pill" data-count="2">2</div>
+                <div class="dice-count-pill" data-count="3">3</div>
+                <div class="dice-count-pill" data-count="4">4</div>
+                <div class="dice-count-pill" data-count="6">6</div>
+                <div class="dice-count-pill" data-count="8">8</div>
+              </div>
+            </div>
+          </div>
+          <div class="control-row">
+            <div class="control-group">
+              <label>Roll Type</label>
+              <div class="advantage-pills">
+                <div class="advantage-pill active" data-type="normal">Normal</div>
+                <div class="advantage-pill" data-type="advantage">ADV</div>
+                <div class="advantage-pill" data-type="disadvantage">DIS</div>
+              </div>
+            </div>
+            <div class="control-group">
+              <label>Modifier</label>
+              <input type="number" id="modifierFs" value="0" min="-20" max="20" placeholder="+/-">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dice-container large" id="fullscreenDiceInner"></div>
+      <div id="diceResultFs" class="result"></div>
+      
+      <div class="roll-button-container">
+        <button class="btn primary large" id="btnRollDiceFs">🎲 Roll Dice</button>
+      </div>
+      
+      <div class="controls">
+        <button class="btn secondary" id="btnClearDiceFs">Clear</button>
+        <button class="btn danger" id="btnExitFs">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEO Content -->
+  <section class="seo-block" style="margin-top:32px">
+    <h2>D&D Dice Roller with Advantage and Modifiers</h2>
+    <p>This professional <strong>D&D dice roller</strong> supports all polyhedral dice types (d4, d6, d8, d10, d12, d20, d100) with advantage/disadvantage mechanics, modifiers, and automatic critical detection for D&D 5e.</p>
+    
+    <h3>Features for Dungeon Masters and Players</h3>
+    <ul>
+      <li><strong>Advantage/Disadvantage:</strong> Roll twice and automatically take the higher or lower result</li>
+      <li><strong>Modifiers:</strong> Add ability scores, proficiency bonuses, and situational modifiers</li>
+      <li><strong>Critical Detection:</strong> Automatic highlighting of natural 20s and natural 1s</li>
+      <li><strong>Quick Presets:</strong> One-click access to common D&D rolls like attacks, damage, and initiative</li>
+      <li><strong>All Dice Types:</strong> Complete set of RPG dice from d4 to d100</li>
+    </ul>
+
+    <details>
+      <summary><strong>How to Use for D&D</strong></summary>
+      <p>Select your dice type (d20 for most rolls), choose normal/advantage/disadvantage, add any modifiers, and roll. The result shows both the dice roll and final total. Perfect for:</p>
+      <ul>
+        <li>Attack rolls with advantage</li>
+        <li>Ability checks with modifiers</li>
+        <li>Damage rolls for spells and weapons</li>
+        <li>Initiative and saving throws</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary><strong>D&D 5e Mechanics</strong></summary>
+      <p>This roller follows D&D 5th Edition rules:</p>
+      <ul>
+        <li><strong>Advantage:</strong> Roll two d20s, use the higher result</li>
+        <li><strong>Disadvantage:</strong> Roll two d20s, use the lower result</li>
+        <li><strong>Critical Hit:</strong> Natural 20 on attack rolls</li>
+        <li><strong>Critical Failure:</strong> Natural 1 on attack rolls and death saves</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary><strong>D&D Dice Types</strong></summary>
+      <p>Each die in D&D has a specific shape and use:</p>
+      <ul>
+        <li><strong>d4 (Tetrahedron):</strong> A four-sided pyramid shape. Used for daggers, darts, and minor spells.</li>
+        <li><strong>d6 (Cube):</strong> A classic six-sided die. Used for short swords, firebolt, and many basic weapons.</li>
+        <li><strong>d8 (Octahedron):</strong> Eight-sided diamond shape. Used for longswords, healing spells, and divine smite.</li>
+        <li><strong>d10 (Pentagonal Trapezohedron):</strong> Ten-sided die. Used for battleaxes and damage calculation.</li>
+        <li><strong>d12 (Regular Dodecahedron):</strong> Twelve-sided die. Used for greataxes and heavy hitting weapons.</li>
+        <li><strong>d20 (Regular Icosahedron):</strong> Twenty-sided die. Used for all attack rolls, ability checks, and saving throws.</li>
+        <li><strong>d100 (Percentile):</strong> Combines two d10s to generate numbers 1-100. Used for random tables and percentages.</li>
+      </ul>
+    </details>
+
+    <p class="meta" style="opacity:.7;margin-top:8px">
+      Perfect for D&D 5e, Pathfinder, and other d20 system RPGs. Updated: <time datetime="2025-09-08">September 8, 2025</time>
+    </p>
+  </section>
+
+  <!-- Scripts -->
+  <script src="/assets/js/dnd_dice-standalone.js?v=1"></script>
+  
+  <footer class="footer">
+    <div class="footer-inner container">
+      <div class="links">
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
+      </div>
+      <div class="copy">© RandomTools.app</div>
+    </div>
+  </footer>
+</body>
+</html>

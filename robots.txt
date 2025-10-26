@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# (Valinnainen) Estä dev-kansiot jos niitä eksyy tuotantoon
+Disallow: /node_modules/
+Disallow: /scripts/
+Disallow: /drafts/
+
+Sitemap: https://randomtools.app/sitemap.xml
